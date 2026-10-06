@@ -1,0 +1,20 @@
+# Entorno y caché
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+
+# Salidas generadas
+tablero_resuelto*.png
+debug_*.png
+debug_*/
+recortes_detectados/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
