@@ -1,0 +1,1479 @@
+{
+ "casos": [
+  {
+   "id": "caso_01",
+   "nombre": "La Tienda",
+   "archivo": "caso_01.png",
+   "N": 6,
+   "dificultad": "Intermedio",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Bar"
+    },
+    {
+     "id": 2,
+     "nombre": "Baño"
+    },
+    {
+     "id": 3,
+     "nombre": "Sala Principal"
+    }
+   ],
+   "mapa": [
+    "111122",
+    "111122",
+    "111133",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "mesas": [
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      4,
+      4
+     ]
+    ],
+    "sillas": [
+     [
+      0,
+      5
+     ],
+     [
+      5,
+      0
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      5,
+      4
+     ]
+    ],
+    "plantas": [
+     [
+      5,
+      2
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "computadora": [
+     [
+      2,
+      1
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Juana",
+     "texto": "Ella estaba al lado de una planta. Ella no estaba sentada en una silla."
+    },
+    {
+     "nombre": "Barbara",
+     "texto": "Ella estaba al lado de una computadora."
+    },
+    {
+     "nombre": "Ana",
+     "texto": "Ella estaba en la segunda columna."
+    },
+    {
+     "nombre": "Paulo",
+     "texto": "Él estaba al norte de Ana. Él estaba en la SALA PRINCIPAL."
+    },
+    {
+     "nombre": "Cristian",
+     "texto": "Él estaba sentado en una silla. Él no estaba al lado de una mesa."
+    },
+    {
+     "nombre": "Henry",
+     "texto": "La Víctima. Él estaba en el último área restante, solo con el asesino."
+    }
+   ],
+   "culpable": "Barbara",
+   "solucion": {
+    "Juana": [
+     5,
+     3
+    ],
+    "Barbara": [
+     2,
+     0
+    ],
+    "Ana": [
+     4,
+     1
+    ],
+    "Paulo": [
+     3,
+     4
+    ],
+    "Cristian": [
+     0,
+     5
+    ],
+    "Henry": [
+     1,
+     2
+    ]
+   },
+   "revision": "Sin cambios: la solución ya era única."
+  },
+  {
+   "id": "caso_02",
+   "nombre": "La Oficina",
+   "archivo": "caso_02.png",
+   "N": 6,
+   "dificultad": "Principiante",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Gerencia"
+    },
+    {
+     "id": 2,
+     "nombre": "Archivo"
+    },
+    {
+     "id": 3,
+     "nombre": "Open Office"
+    }
+   ],
+   "mapa": [
+    "111222",
+    "111222",
+    "111222",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      0,
+      2
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "sillas": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      2
+     ]
+    ],
+    "plantas": [
+     [
+      4,
+      0
+     ],
+     [
+      5,
+      5
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Felipe",
+     "texto": "Él estaba al lado de una planta. Él no estaba sentado en una silla. Él estaba en la cuarta fila.",
+     "texto_imagen": "Él estaba al lado de una planta. Él no estaba sentado en una silla."
+    },
+    {
+     "nombre": "Carlos",
+     "texto": "Él estaba al lado de una laptop. Él estaba en la primera fila."
+    },
+    {
+     "nombre": "Diana",
+     "texto": "Ella estaba sentada en una silla en la Gerencia."
+    },
+    {
+     "nombre": "Elena",
+     "texto": "Ella estaba en la tercera columna, en el Open Office."
+    },
+    {
+     "nombre": "Gabriel",
+     "texto": "Él estaba al sur de Carlos. Él estaba en la última columna."
+    },
+    {
+     "nombre": "David",
+     "texto": "La Víctima. Hallado en el Archivo, solo con el asesino."
+    }
+   ],
+   "culpable": "Carlos",
+   "solucion": {
+    "Felipe": [
+     3,
+     0
+    ],
+    "Carlos": [
+     0,
+     3
+    ],
+    "Diana": [
+     1,
+     1
+    ],
+    "Elena": [
+     5,
+     2
+    ],
+    "Gabriel": [
+     4,
+     5
+    ],
+    "David": [
+     2,
+     4
+    ]
+   },
+   "revision": "La solución original tenía filas repetidas y el planteamiento admitía 3 soluciones. Se agrega una frase a Felipe para que sea única (la imagen debe actualizarse)."
+  },
+  {
+   "id": "caso_03",
+   "nombre": "La Biblioteca Colonial",
+   "archivo": "caso_03.png",
+   "N": 6,
+   "dificultad": "Principiante",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Sala de Lectura"
+    },
+    {
+     "id": 2,
+     "nombre": "Depósito"
+    },
+    {
+     "id": 3,
+     "nombre": "Vestíbulo"
+    }
+   ],
+   "mapa": [
+    "111222",
+    "111222",
+    "111222",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      1,
+      2
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      5,
+      4
+     ]
+    ],
+    "sillas": [
+     [
+      0,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      5
+     ]
+    ],
+    "plantas": [
+     [
+      2,
+      5
+     ],
+     [
+      4,
+      0
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Beatriz",
+     "texto": "Ella estaba en la Sala de Lectura, al lado de una laptop."
+    },
+    {
+     "nombre": "Camilo",
+     "texto": "Él estaba sentado en una silla en el Depósito."
+    },
+    {
+     "nombre": "Daniel",
+     "texto": "Él estaba en la tercera columna, en el Vestíbulo. Él estaba en la última fila.",
+     "texto_imagen": "Él estaba en la tercera columna, en el Vestíbulo."
+    },
+    {
+     "nombre": "Esther",
+     "texto": "Ella estaba en la última columna, sentada en una silla."
+    },
+    {
+     "nombre": "Fabian",
+     "texto": "Él estaba al sur de Camilo. Él no estaba en una silla."
+    },
+    {
+     "nombre": "Arthur",
+     "texto": "La Víctima. Quedó atrapado en la Sala de Lectura con el asesino."
+    }
+   ],
+   "culpable": "Beatriz",
+   "solucion": {
+    "Beatriz": [
+     1,
+     1
+    ],
+    "Camilo": [
+     0,
+     4
+    ],
+    "Daniel": [
+     5,
+     2
+    ],
+    "Esther": [
+     4,
+     5
+    ],
+    "Fabian": [
+     3,
+     3
+    ],
+    "Arthur": [
+     2,
+     0
+    ]
+   },
+   "revision": "La asesina original no estaba al lado de la laptop y el planteamiento admitía 2 soluciones. Se agrega una frase a Daniel para que sea única (la imagen debe actualizarse)."
+  },
+  {
+   "id": "caso_04",
+   "nombre": "El Centro Tecnológico",
+   "archivo": "caso_04.png",
+   "N": 6,
+   "dificultad": "Intermedio",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Servidores"
+    },
+    {
+     "id": 2,
+     "nombre": "Laboratorio"
+    },
+    {
+     "id": 3,
+     "nombre": "Recepción"
+    }
+   ],
+   "mapa": [
+    "111111",
+    "111111",
+    "222222",
+    "222222",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      1,
+      0
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      3
+     ]
+    ],
+    "sillas": [
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      2
+     ]
+    ],
+    "plantas": [
+     [
+      1,
+      3
+     ],
+     [
+      5,
+      0
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Nuria",
+     "texto": "Ella estaba al lado de una silla."
+    },
+    {
+     "nombre": "Mateo",
+     "texto": "Él estaba en la segunda columna, en el Laboratorio."
+    },
+    {
+     "nombre": "Oscar",
+     "texto": "Él estaba sentado en una silla, en la quinta columna."
+    },
+    {
+     "nombre": "Patricia",
+     "texto": "Ella estaba al oeste de Mateo. Ella estaba en la Recepción."
+    },
+    {
+     "nombre": "Ramiro",
+     "texto": "Él estaba en la cuarta columna, al lado de una mesa."
+    },
+    {
+     "nombre": "Walter",
+     "texto": "La Víctima. Encontrado en Servidores, solo con el agresor."
+    }
+   ],
+   "culpable": "Ramiro",
+   "solucion": {
+    "Nuria": [
+     5,
+     5
+    ],
+    "Mateo": [
+     3,
+     1
+    ],
+    "Oscar": [
+     2,
+     4
+    ],
+    "Patricia": [
+     4,
+     0
+    ],
+    "Ramiro": [
+     0,
+     3
+    ],
+    "Walter": [
+     1,
+     2
+    ]
+   },
+   "revision": "Las pistas originales eran contradictorias (Nuria no podía estar al lado de la laptop en Servidores). Se reemplaza el testimonio de Nuria."
+  },
+  {
+   "id": "caso_05",
+   "nombre": "La Galería Minimalista",
+   "archivo": "caso_05.png",
+   "N": 6,
+   "dificultad": "Intermedio",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Bóveda"
+    },
+    {
+     "id": 2,
+     "nombre": "Taller"
+    },
+    {
+     "id": 3,
+     "nombre": "Galería Central"
+    }
+   ],
+   "mapa": [
+    "113322",
+    "113322",
+    "113322",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      1,
+      0
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ]
+    ],
+    "sillas": [
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      4,
+      4
+     ]
+    ],
+    "plantas": [
+     [
+      0,
+      3
+     ],
+     [
+      5,
+      2
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Sofía",
+     "texto": "Ella estaba en la Bóveda, al lado de una laptop."
+    },
+    {
+     "nombre": "Tomas",
+     "texto": "Él estaba sentado en una silla en el Taller."
+    },
+    {
+     "nombre": "Ursula",
+     "texto": "Ella estaba en la cuarta columna."
+    },
+    {
+     "nombre": "Victor",
+     "texto": "Él estaba al norte de Ursula, en la tercera columna."
+    },
+    {
+     "nombre": "Ximena",
+     "texto": "Ella no estaba sentada en una silla."
+    },
+    {
+     "nombre": "Vincent",
+     "texto": "La Víctima. Asesinado en la Bóveda de obras maestras."
+    }
+   ],
+   "culpable": "Sofía",
+   "solucion": {
+    "Sofía": [
+     0,
+     0
+    ],
+    "Tomas": [
+     1,
+     5
+    ],
+    "Ursula": [
+     5,
+     3
+    ],
+    "Victor": [
+     4,
+     2
+    ],
+    "Ximena": [
+     3,
+     4
+    ],
+    "Vincent": [
+     2,
+     1
+    ]
+   },
+   "revision": "Las pistas originales eran contradictorias. Se reemplazan los testimonios de Ursula y Ximena."
+  },
+  {
+   "id": "caso_06",
+   "nombre": "El Cafetín Universitario",
+   "archivo": "caso_06.png",
+   "N": 6,
+   "dificultad": "Intermedio",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Terraza"
+    },
+    {
+     "id": 2,
+     "nombre": "Cocina"
+    },
+    {
+     "id": 3,
+     "nombre": "Comedor Central"
+    }
+   ],
+   "mapa": [
+    "111111",
+    "111111",
+    "222222",
+    "222222",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      3,
+      1
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      3
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      4,
+      2
+     ]
+    ],
+    "sillas": [
+     [
+      0,
+      4
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      0
+     ]
+    ],
+    "plantas": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      5,
+      5
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Gabriel",
+     "texto": "Él estaba en la Terraza, sentado en una silla."
+    },
+    {
+     "nombre": "Helena",
+     "texto": "Ella estaba al lado de una laptop en la Cocina."
+    },
+    {
+     "nombre": "Ignacio",
+     "texto": "Él estaba en la quinta columna, en la Cocina."
+    },
+    {
+     "nombre": "Julia",
+     "texto": "Ella estaba en la primera columna, en el Comedor Central. Ella estaba en la última fila."
+    },
+    {
+     "nombre": "Klaus",
+     "texto": "Él estaba al este de Julia, en el Comedor Central."
+    },
+    {
+     "nombre": "Hector",
+     "texto": "La Víctima. Asfixiado en la Terraza junto al culpable."
+    }
+   ],
+   "culpable": "Gabriel",
+   "solucion": {
+    "Gabriel": [
+     1,
+     2
+    ],
+    "Helena": [
+     2,
+     1
+    ],
+    "Ignacio": [
+     3,
+     4
+    ],
+    "Julia": [
+     5,
+     0
+    ],
+    "Klaus": [
+     4,
+     3
+    ],
+    "Hector": [
+     0,
+     5
+    ]
+   },
+   "revision": "La solución original repetía columna y el planteamiento admitía 2 soluciones. Se agrega una frase a Julia."
+  },
+  {
+   "id": "caso_07",
+   "nombre": "La Agencia de Diseño",
+   "archivo": "caso_07.png",
+   "N": 6,
+   "dificultad": "Avanzado",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Creativa"
+    },
+    {
+     "id": 2,
+     "nombre": "Pasillo Central"
+    },
+    {
+     "id": 3,
+     "nombre": "Reuniones"
+    }
+   ],
+   "mapa": [
+    "111222",
+    "111222",
+    "111222",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      0,
+      1
+     ],
+     [
+      4,
+      4
+     ]
+    ],
+    "mesas": [
+     [
+      1,
+      0
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ]
+    ],
+    "sillas": [
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      0
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "plantas": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      5,
+      2
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Valeria",
+     "texto": "Ella estaba en la sala Creativa, sentada en una silla."
+    },
+    {
+     "nombre": "Bruno",
+     "texto": "Él estaba en la última columna, en el Pasillo Central. Él estaba en la segunda fila."
+    },
+    {
+     "nombre": "Celia",
+     "texto": "Ella estaba al lado de una laptop, en la cuarta fila."
+    },
+    {
+     "nombre": "Dante",
+     "texto": "Él estaba en la primera columna, en la sala de Reuniones."
+    },
+    {
+     "nombre": "Elisa",
+     "texto": "Ella estaba al este de Dante, al lado de una planta."
+    },
+    {
+     "nombre": "Galileo",
+     "texto": "La Víctima. Atacado en la sala Creativa con su agresor."
+    }
+   ],
+   "culpable": "Valeria",
+   "solucion": {
+    "Valeria": [
+     2,
+     1
+    ],
+    "Bruno": [
+     1,
+     5
+    ],
+    "Celia": [
+     3,
+     4
+    ],
+    "Dante": [
+     4,
+     0
+    ],
+    "Elisa": [
+     5,
+     3
+    ],
+    "Galileo": [
+     0,
+     2
+    ]
+   },
+   "revision": "La solución original repetía columna y ubicaba a Elisa sobre una planta; admitía 2 soluciones. Se agrega una frase a Bruno."
+  },
+  {
+   "id": "caso_08",
+   "nombre": "El Coworking Urbano",
+   "archivo": "caso_08.png",
+   "N": 6,
+   "dificultad": "Avanzado",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Cabina Privada"
+    },
+    {
+     "id": 2,
+     "nombre": "Comedor"
+    },
+    {
+     "id": 3,
+     "nombre": "Zona Lounge"
+    }
+   ],
+   "mapa": [
+    "111222",
+    "111222",
+    "333333",
+    "333333",
+    "333333",
+    "333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      0,
+      1
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      3
+     ]
+    ],
+    "sillas": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    "plantas": [
+     [
+      1,
+      5
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      0
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Lucas",
+     "texto": "Él estaba en la Cabina Privada, sentado en una silla."
+    },
+    {
+     "nombre": "Miriam",
+     "texto": "Ella estaba en la segunda columna."
+    },
+    {
+     "nombre": "Nicolas",
+     "texto": "Él estaba en la quinta columna."
+    },
+    {
+     "nombre": "Olga",
+     "texto": "Ella estaba en la última columna, sentada en una silla."
+    },
+    {
+     "nombre": "Pablo",
+     "texto": "Él estaba al sur de Nicolas, en la última fila."
+    },
+    {
+     "nombre": "Mario",
+     "texto": "La Víctima. Hallado en la Cabina Privada, solo con el agresor."
+    }
+   ],
+   "culpable": "Lucas",
+   "solucion": {
+    "Lucas": [
+     1,
+     0
+    ],
+    "Miriam": [
+     3,
+     1
+    ],
+    "Nicolas": [
+     2,
+     4
+    ],
+    "Olga": [
+     4,
+     5
+    ],
+    "Pablo": [
+     5,
+     3
+    ],
+    "Mario": [
+     0,
+     2
+    ]
+   },
+   "revision": "Las pistas originales eran contradictorias. Se reemplazan los testimonios de Miriam y Nicolas."
+  },
+  {
+   "id": "caso_09",
+   "nombre": "La Mansión de Cristal",
+   "archivo": "caso_09.png",
+   "N": 8,
+   "dificultad": "Experto",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Invernadero"
+    },
+    {
+     "id": 2,
+     "nombre": "Estudio"
+    },
+    {
+     "id": 3,
+     "nombre": "Salón Principal"
+    }
+   ],
+   "mapa": [
+    "11112222",
+    "11112222",
+    "11112222",
+    "11112222",
+    "33333333",
+    "33333333",
+    "33333333",
+    "33333333"
+   ],
+   "muebles": {
+    "plantas": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      7,
+      2
+     ]
+    ],
+    "computadora": [
+     [
+      0,
+      5
+     ],
+     [
+      6,
+      1
+     ]
+    ],
+    "sillas": [
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      5,
+      0
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      7,
+      7
+     ]
+    ],
+    "mesas": [
+     [
+      1,
+      6
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      6,
+      6
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Irene",
+     "texto": "Ella estaba en el Invernadero, sentada en una silla."
+    },
+    {
+     "nombre": "Jorge",
+     "texto": "Él estaba en el Estudio, al lado de una laptop. Él estaba en la séptima columna."
+    },
+    {
+     "nombre": "Karina",
+     "texto": "Ella estaba en la primera columna, en el Salón Principal. Ella estaba en la séptima fila."
+    },
+    {
+     "nombre": "Leonardo",
+     "texto": "Él estaba en la sexta columna, sentado en una silla."
+    },
+    {
+     "nombre": "Monica",
+     "texto": "Ella estaba al sur de Karina, al lado de una laptop."
+    },
+    {
+     "nombre": "Jack",
+     "texto": "La Víctima. Atrapado en el Invernadero con el asesino. Él estaba en la cuarta fila."
+    }
+   ],
+   "culpable": "Irene",
+   "solucion": {
+    "Irene": [
+     1,
+     2
+    ],
+    "Jorge": [
+     0,
+     6
+    ],
+    "Karina": [
+     6,
+     0
+    ],
+    "Leonardo": [
+     5,
+     5
+    ],
+    "Monica": [
+     7,
+     1
+    ],
+    "Jack": [
+     3,
+     3
+    ]
+   },
+   "revision": "La solución original repetía filas y columnas; el 8x8 admitía muchas soluciones. Se agregan frases a Jorge, Karina y a la víctima."
+  },
+  {
+   "id": "caso_10",
+   "nombre": "La Sala de Prensa",
+   "archivo": "caso_10.png",
+   "N": 8,
+   "dificultad": "Experto",
+   "salas": [
+    {
+     "id": 1,
+     "nombre": "Cabina de Grabación",
+     "alias": [
+      "Cabina"
+     ]
+    },
+    {
+     "id": 2,
+     "nombre": "Redacción"
+    },
+    {
+     "id": 3,
+     "nombre": "Auditorio"
+    }
+   ],
+   "mapa": [
+    "11112222",
+    "11112222",
+    "11112222",
+    "11112222",
+    "33333333",
+    "33333333",
+    "33333333",
+    "33333333"
+   ],
+   "muebles": {
+    "computadora": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      7
+     ]
+    ],
+    "mesas": [
+     [
+      0,
+      5
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      6,
+      3
+     ]
+    ],
+    "sillas": [
+     [
+      0,
+      6
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      5,
+      2
+     ],
+     [
+      6,
+      0
+     ],
+     [
+      6,
+      7
+     ]
+    ],
+    "plantas": [
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      7,
+      4
+     ]
+    ]
+   },
+   "personajes": [
+    {
+     "nombre": "Marcos",
+     "texto": "Él estaba en la Cabina, al lado de una laptop."
+    },
+    {
+     "nombre": "Natalia",
+     "texto": "Ella estaba sentada en una silla en la Redacción. Ella estaba en la sexta columna."
+    },
+    {
+     "nombre": "Orlando",
+     "texto": "Él estaba en la tercera columna, en el Auditorio. Él estaba en la quinta fila."
+    },
+    {
+     "nombre": "Paula",
+     "texto": "Ella estaba en la primera columna, sentada en una silla."
+    },
+    {
+     "nombre": "Quirino",
+     "texto": "Él estaba al este de Paula, en la última columna. Él estaba en la sexta fila."
+    },
+    {
+     "nombre": "Howard",
+     "texto": "La Víctima. Silenciado en la Cabina de Grabación con el culpable. Él estaba en la tercera fila."
+    }
+   ],
+   "culpable": "Marcos",
+   "solucion": {
+    "Marcos": [
+     1,
+     1
+    ],
+    "Natalia": [
+     3,
+     5
+    ],
+    "Orlando": [
+     4,
+     2
+    ],
+    "Paula": [
+     6,
+     0
+    ],
+    "Quirino": [
+     5,
+     7
+    ],
+    "Howard": [
+     2,
+     3
+    ]
+   },
+   "revision": "La solución original repetía filas y columnas; el 8x8 admitía muchas soluciones. Se agregan frases a Quirino, Orlando, Natalia y a la víctima."
+  }
+ ]
+}
