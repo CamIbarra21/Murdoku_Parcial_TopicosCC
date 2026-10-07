@@ -222,7 +222,7 @@ Las figuras (PNG a 300 dpi y PDF vectorial para LaTeX) quedan en `resultados/fig
 - El dataset de robustez pedido por el enunciado necesita variantes de cada puzzle con otra iluminación, ángulo ligero e impresión; hoy solo hay versiones digitales y no hay corrección de perspectiva.
 - Informe técnico (LaTeX) y video demostrativo.
 
-#Informe en Overleaf
+## Informe en Overleaf
 
 https://www.overleaf.com/read/fytxtscfnqmn#c8f6d9
 
