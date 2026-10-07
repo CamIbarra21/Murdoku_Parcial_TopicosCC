@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Murdoku: Detective Lógico</title>
+  
+  <!-- Iconos de Material Design & Tipografías Inter / JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN con la paleta Deductive Precision (DESIGN.md) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // Superficies y Canvas
+            "app-bg": "#F8FAFC",
+            "card-bg": "#FFFFFF",
+            "border-subtle": "#E2E8F0",
+            "border-medium": "#CBD5E1",
+            
+            // Textos
+            "text-primary": "#0F172A",
+            "text-secondary": "#475569",
+            "text-muted": "#94A3B8",
+
+            // Habitaciones semánticas (Tonos pastel de baja saturación)
+            "room-bar-bg": "#D1FAE5",
+            "room-bar-text": "#065F46",
+            "room-bar-border": "#A7F3D0",
+
+            "room-bano-bg": "#FEF3C7",
+            "room-bano-text": "#92400E",
+            "room-bano-border": "#FDE68A",
+
+            "room-sala-bg": "#E0F2FE",
+            "room-sala-text": "#0369A1",
+            "room-sala-border": "#BAE6FD",
+
+            // Estados Lógicos
+            "culprit-bg": "#FEE2E2",
+            "culprit-text": "#991B1B",
+            "culprit-border": "#FECACA",
+
+            "verified-bg": "#D1FAE5",
+            "verified-text": "#065F46",
+            "verified-border": "#10B981"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Ocultar barra de scroll para mantener acabado minimalista */
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-app-bg text-text-primary font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ============================================================== -->
+  <!-- BARRA DE NAVEGACIÓN GLOBAL                                     -->
+  <!-- ============================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-card-bg/95 backdrop-blur-md border-b border-border-subtle">
+    <div class="h-14 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <!-- Logotipo & Migas de Pan -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="navegarHacia('galeria')">
+          <div class="w-7 h-7 rounded bg-text-primary text-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[16px]">grid_view</span>
+          </div>
+          <span class="font-bold text-base tracking-tight text-text-primary">Murdoku</span>
+          <span class="px-2 py-0.5 rounded-full text-xs bg-slate-100 text-text-secondary font-medium">Detective Lógico</span>
+        </div>
+        
+        <span class="text-border-medium text-sm select-none">/</span>
+        
+        <nav class="flex items-center gap-2 sm:gap-3 text-sm">
+          <button id="nav-btn-galeria" onclick="navegarHacia('galeria')" class="font-semibold text-text-primary transition-colors">
+            Casos
+          </button>
+          <span class="text-border-medium text-sm select-none">/</span>
+          <button id="nav-btn-workspace" onclick="navegarHacia('workspace')" class="text-text-secondary hover:text-text-primary transition-colors">
+            Tablero Activo
+          </button>
+        </nav>
+      </div>
+
+      <!-- Métricas de estado de los motores -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-border-subtle font-mono text-xs">
+          <span class="text-text-muted">SAT:</span>
+          <span class="text-room-bar-text font-semibold">OR-Tools</span>
+          <span class="text-border-medium mx-1">|</span>
+          <span class="text-text-muted">LLM:</span>
+          <span class="text-room-sala-text font-semibold">Llama 3.2</span>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-text-primary text-white flex items-center justify-center shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="w-full pt-16 max-w-7xl mx-auto px-4 sm:px-6 flex-1 flex flex-col">
+
+    <!-- ============================================================== -->
+    <!-- VISTA 1: GALERÍA DE CASOS (SELECCIÓN)                          -->
+    <!-- ============================================================== -->
+    <section id="vista-galeria" class="flex flex-col w-full py-6 transition-opacity duration-200">
+      
+      <!-- Encabezado de la Galería -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="font-mono text-xs uppercase tracking-wider text-text-muted">Expedientes de Investigación</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-verified-border"></span>
+            <span id="contador-casos" class="font-mono text-xs text-room-bar-text font-semibold">Cargando...</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary mb-2">
+            Murdoku: Detective Lógico
+          </h1>
+          <p class="text-sm text-text-secondary leading-relaxed">
+            Deducción espacial de homicidios por satisfacción de restricciones. Combina Visión Computacional, Google OR-Tools CP-SAT y tutoría pedagógica con Ollama.
+          </p>
+        </div>
+        
+        <div class="flex items-center gap-2 self-start md:self-auto">
+          <button id="btn-abrir-activo" onclick="navegarHacia('workspace')" class="hidden flex items-center gap-2 px-4 py-2 rounded bg-text-primary text-white hover:bg-slate-800 transition-colors shadow-sm text-sm font-medium">
+            <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            <span>Abrir Caso Activo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Expedientes (generadas desde /api/casos) -->
+      <div id="galeria-casos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p class="col-span-full text-sm text-text-muted">Cargando casos...</p>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- VISTA 2: ESPACIO DE TRABAJO (WORKSPACE ACTIVO)                 -->
+    <!-- ============================================================== -->
+    <section id="vista-workspace" class="hidden flex-col w-full py-4 pb-12 transition-opacity duration-200">
+      
+      <!-- Sub-Barra de Navegación del Caso -->
+      <div class="w-full pb-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-card-bg p-3.5 rounded-xl border border-border-subtle shadow-sm">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+            <button onclick="navegarHacia('galeria')" class="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-text-secondary hover:text-text-primary py-1 px-3 rounded bg-slate-50 border border-border-subtle transition-colors">
+              <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+              <span>Volver a Casos</span>
+            </button>
+            <span class="text-border-medium select-none hidden sm:inline">|</span>
+            <h1 id="ws-titulo" class="text-base font-bold text-text-primary">Caso</h1>
+            <span id="ws-grid" class="px-2 py-0.5 rounded-full text-xs bg-slate-100 text-text-secondary font-mono font-medium"></span>
+            <div id="status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-room-bar-bg text-room-bar-text text-xs font-medium border border-room-bar-border">
+              <span id="status-dot" class="w-2 h-2 rounded-full bg-verified-border"></span>
+              <span id="status-texto">Visión: Listo</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-end sm:self-auto">
+            <button onclick="reiniciarTablero()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded text-xs font-medium bg-slate-50 text-text-secondary hover:bg-slate-100 hover:text-text-primary border border-border-subtle transition-colors shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+              <span>Reiniciar Hipótesis</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout Bicolor de 2 Columnas (50% / 50%) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        
+        <!-- COLUMNA IZQUIERDA: Imagen Original + Expedientes -->
+        <div class="flex flex-col gap-5 w-full">
+          
+          <!-- Card de Imagen Original -->
+          <div class="bg-card-bg rounded-xl p-4 shadow-sm border border-border-subtle flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-text-secondary text-[18px]">photo_library</span>
+                <h2 class="text-sm font-bold text-text-primary">Imagen Original del Caso</h2>
+              </div>
+              <span id="ws-archivo" class="px-2 py-0.5 rounded text-xs bg-slate-100 text-text-secondary font-mono"></span>
+            </div>
+            <div class="w-full rounded-lg bg-slate-50 border border-border-subtle overflow-hidden flex items-center justify-center p-2 min-h-[220px]">
+              <img id="img-caso" src="" class="max-h-[300px] w-auto object-contain rounded" alt="Tablero y Pistas Murdoku"/>
+            </div>
+            <p class="text-[11px] text-text-muted">
+              Preprocesamiento mediante segmentación Otsu, MobileNetV3 (muebles) y Tesseract OCR (tarjetas).
+            </p>
+          </div>
+
+          <!-- Card de Expedientes de Testigos -->
+          <div class="bg-card-bg rounded-xl p-4 shadow-sm border border-border-subtle flex flex-col gap-3">
+            <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-text-secondary text-[18px]">badge</span>
+                <h2 class="text-sm font-bold text-text-primary">Expedientes y Testimonios</h2>
+              </div>
+              <span class="font-mono text-xs text-text-muted">Extracción: Ollama 3.2</span>
+            </div>
+
+            <!-- Contenedor inyectado dinámicamente con JS -->
+            <div id="contenedor-expedientes" class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+              <div class="p-3 text-center text-text-muted col-span-2">Cargando testimonios del caso...</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: Matriz 6x6 + Controles + Tutor Socrático -->
+        <div class="flex flex-col gap-5 w-full">
+          
+          <!-- Contenedor de la Cuadrícula -->
+          <div class="bg-card-bg rounded-xl p-4 sm:p-5 shadow-sm border border-border-subtle flex flex-col gap-4">
+            
+            <!-- Leyenda de Salas -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-border-subtle">
+              <div>
+                <h2 id="titulo-matriz" class="text-sm font-bold text-text-primary">Matriz de Deducción</h2>
+                <p class="text-xs text-text-muted">Topología espacial y mobiliario detectado</p>
+              </div>
+              <div id="leyenda-salas" class="flex items-center gap-1.5 flex-wrap text-xs"></div>
+            </div>
+
+            <!-- Paleta: elige a quién ubicar y toca una casilla -->
+            <div>
+              <p class="text-xs text-text-muted mb-1.5">Elige una persona y toca una casilla para ubicarla (toca la casilla de nuevo para quitarla).</p>
+              <div id="paleta-personas" class="flex flex-wrap gap-1.5"></div>
+            </div>
+
+            <!-- Grilla NxN Dinámica (Inyectada por JS) -->
+            <div class="w-full max-w-[440px] mx-auto aspect-square bg-slate-50 p-2 rounded-xl border border-border-subtle shadow-inner">
+              <div id="grid-matriz" class="grid w-full h-full gap-1">
+                <!-- NxN celdas inyectadas dinámicamente -->
+              </div>
+            </div>
+
+            <!-- Botonera de Acción Principal -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+              <button id="btn-validar" onclick="validarJugada()" class="inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded bg-card-bg border border-border-medium text-text-primary hover:bg-slate-50 transition-colors text-sm font-medium shadow-sm">
+                <span class="material-symbols-outlined text-[18px] text-room-bar-text">fact_check</span>
+                <span>Validar</span>
+              </button>
+              <button id="btn-tutor" onclick="consultarTutorSocratico()" class="inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded bg-card-bg border border-border-medium text-text-primary hover:bg-slate-50 transition-colors text-sm font-medium shadow-sm">
+                <span class="material-symbols-outlined text-[18px] text-amber-600">lightbulb</span>
+                <span id="txt-btn-tutor">Pedir Pista</span>
+              </button>
+              <button id="btn-resolver" onclick="ejecutarSolverSAT()" class="inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded bg-text-primary text-white hover:bg-slate-800 transition-colors text-sm font-medium shadow-sm">
+                <span class="material-symbols-outlined text-[18px]">done_all</span>
+                <span>Resolver Caso</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Tarjeta de Llamada del Tutor Socrático (Estilo Notion Callout) -->
+          <div class="bg-slate-50 rounded-xl p-4 flex gap-3.5 items-start shadow-sm border border-border-subtle">
+            <div class="w-8 h-8 rounded-full bg-card-bg flex items-center justify-center flex-shrink-0 text-amber-600 shadow-sm border border-border-subtle">
+              <span class="material-symbols-outlined text-[20px]">psychology</span>
+            </div>
+            <div class="flex flex-col gap-1 w-full text-xs">
+              <div class="flex items-center justify-between">
+                <h3 class="font-bold text-text-primary text-xs">Detective Tutor (Solver + Ollama)</h3>
+                <span id="tag-tutor" class="font-mono text-[10px] text-text-muted font-medium">Modo Pedagógico</span>
+              </div>
+              <label class="flex items-center gap-1.5 text-[10px] text-text-muted cursor-pointer select-none">
+                <input id="chk-llm" type="checkbox" class="accent-slate-700"/>
+                Redactar la pista con Ollama (opcional; la deducción siempre la decide el solver)
+              </label>
+              <div class="hidden">
+              </div>
+              <p id="texto-tutor" class="text-text-secondary leading-relaxed pt-0.5">
+                Ubica a las personas en el tablero y pide una <strong>pista</strong>: el tutor revisa tus ubicaciones con el solver y te guía hacia el siguiente paso sin desvelar la solución.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- PIE DE PÁGINA                                                  -->
+  <!-- ============================================================== -->
+  <footer class="w-full bg-card-bg border-t border-border-subtle py-4 mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-text-muted">
+      <div>Murdoku: Detective Lógico · Tópicos de Ciencias de la Computación</div>
+      <div class="font-mono">Arquitectura Híbrida: Visión + CP-SAT + LLM</div>
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- CONTROLADOR REACTIVO JAVASCRIPT                                -->
+  <!-- ============================================================== -->
+  <script>
+    // Variables de Estado
+    let casos = [];            // catálogo devuelto por /api/casos
+    let casoActual = null;     // id del caso abierto (ej. "caso_02")
+    let puzzleData = null;     // extracción de visión del caso abierto
+    let solucionData = null;   // solución del solver
+    let colocaciones = {};     // ubicaciones del jugador: { persona: [fila, columna] }
+    let personaActiva = null;  // persona elegida en la paleta
+    let nivelPista = 1;        // nivel de ayuda de la próxima pista (1 a 3)
+
+    // Una paleta por sala (se asigna por id de sala: 1, 2, 3...)
+    const paletaSalas = [
+      { celda: "bg-room-bar-bg/60 border-room-bar-border text-room-bar-text",   chip: "bg-room-bar-bg text-room-bar-text border-room-bar-border",   punto: "bg-verified-border" },
+      { celda: "bg-room-bano-bg/60 border-room-bano-border text-room-bano-text", chip: "bg-room-bano-bg text-room-bano-text border-room-bano-border", punto: "bg-amber-500" },
+      { celda: "bg-room-sala-bg/60 border-room-sala-border text-room-sala-text", chip: "bg-room-sala-bg text-room-sala-text border-room-sala-border", punto: "bg-sky-500" },
+      { celda: "bg-purple-100/60 border-purple-200 text-purple-800",              chip: "bg-purple-100 text-purple-800 border-purple-200",             punto: "bg-purple-500" }
+    ];
+    const paletaDeSala = id => paletaSalas[(id - 1) % paletaSalas.length];
+
+    // Los textos vienen de OCR y de un LLM: se escapan antes de insertarlos como HTML
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    // ---------------------------------------------------------------
+    // GALERÍA: tarjetas generadas desde el catálogo (/api/casos)
+    // ---------------------------------------------------------------
+    async function cargarCatalogo() {
+      const cont = document.getElementById('galeria-casos');
+      try {
+        const respuesta = await fetch('/api/casos');
+        casos = await respuesta.json();
+      } catch (error) {
+        cont.innerHTML = '<p class="col-span-full text-sm text-text-muted">No se pudo cargar el catálogo de casos.</p>';
+        return;
+      }
+      const disponibles = casos.filter(c => c.disponible).length;
+      document.getElementById('contador-casos').innerText = `${disponibles} de ${casos.length} casos disponibles`;
+      cont.innerHTML = casos.map(tarjetaCaso).join('');
+    }
+
+    function tarjetaCaso(c) {
+      const numero = c.id.replace('caso_', '');
+      const imagen = c.disponible
+        ? `<img src="${esc(c.url_imagen)}" class="max-h-full object-contain rounded transition-transform duration-300 group-hover:scale-105" alt="Plano ${esc(c.nombre)}"/>`
+        : `<span class="font-mono text-sm text-text-muted">Imagen pendiente</span>`;
+      const estado = c.disponible
+        ? `<div class="absolute top-2 right-2 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-room-bar-bg text-room-bar-text font-medium text-xs border border-room-bar-border"><span class="w-1.5 h-1.5 rounded-full bg-verified-border"></span><span>Listo</span></div>`
+        : `<div class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-slate-100 text-text-muted font-medium text-xs border border-border-subtle">Próximamente</div>`;
+      const boton = c.disponible
+        ? `<button onclick="abrirCaso('${esc(c.id)}')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded bg-text-primary text-white hover:bg-slate-800 transition-colors text-sm font-medium shadow-sm"><span>Jugar / Resolver Caso</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>`
+        : `<button disabled class="w-full py-2.5 rounded bg-slate-100 text-text-muted text-sm font-medium cursor-not-allowed">Próximamente</button>`;
+
+      return `
+        <div class="flex flex-col bg-card-bg border border-border-subtle rounded-xl shadow-sm overflow-hidden group ${c.disponible ? 'hover:shadow-md transition-shadow' : 'opacity-60'}">
+          <div class="relative w-full h-48 bg-slate-100 flex items-center justify-center p-3 border-b border-border-subtle overflow-hidden ${c.disponible ? '' : 'grayscale'}">
+            ${imagen}
+            <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-card-bg/90 backdrop-blur font-mono text-xs font-semibold shadow-sm border border-border-subtle">${esc(c.grid)} Matrix</div>
+            ${estado}
+          </div>
+          <div class="p-5 flex flex-col flex-1 justify-between gap-4">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-text-muted mb-1">
+                <span>Expediente #${esc(numero)}</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 text-text-secondary font-medium">${esc(c.dificultad)}</span>
+              </div>
+              <h2 class="text-lg font-bold text-text-primary">Caso ${parseInt(numero, 10)}: ${esc(c.nombre)}</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded border border-border-subtle">
+              <div class="flex items-center gap-1.5 text-text-secondary"><span class="material-symbols-outlined text-[16px]">groups</span><span>${c.sospechosos_count} Sospechosos</span></div>
+              <div class="flex items-center gap-1.5 text-culprit-text font-medium"><span class="material-symbols-outlined text-[16px]">skull</span><span>1 Víctima</span></div>
+              <div class="flex items-center gap-1.5 text-text-secondary"><span class="material-symbols-outlined text-[16px]">domain</span><span>${c.habitaciones_count} Habitaciones</span></div>
+              <div class="flex items-center gap-1.5 text-text-secondary"><span class="material-symbols-outlined text-[16px]">grid_on</span><span>${esc(c.grid)}</span></div>
+            </div>
+            ${boton}
+          </div>
+        </div>`;
+    }
+
+    // Abrir un caso: limpia el estado anterior y carga la extracción del nuevo
+    function abrirCaso(id) {
+      const info = casos.find(c => c.id === id);
+      if (!info || !info.disponible) return;
+      if (casoActual !== id) {
+        casoActual = id;
+        puzzleData = null;
+        solucionData = null;
+        colocaciones = {};
+        personaActiva = null;
+        nivelPista = 1;
+        document.getElementById('ws-titulo').innerText = `Caso ${parseInt(id.replace('caso_', ''), 10)}: ${info.nombre}`;
+        document.getElementById('ws-grid').innerText = info.grid;
+        document.getElementById('ws-archivo').innerText = info.archivo;
+        document.getElementById('img-caso').src = info.url_imagen;
+        document.getElementById('titulo-matriz').innerText = `Matriz de Deducción ${info.grid}`;
+        document.getElementById('contenedor-expedientes').innerHTML = '<div class="p-3 text-center text-text-muted col-span-2">Cargando testimonios del caso...</div>';
+        document.getElementById('grid-matriz').innerHTML = '';
+        document.getElementById('leyenda-salas').innerHTML = '';
+        document.getElementById('paleta-personas').innerHTML = '';
+        reiniciarTutor();
+      }
+      document.getElementById('btn-abrir-activo').classList.remove('hidden');
+      navegarHacia('workspace');
+    }
+
+    // Navegación entre vistas sin recarga de página (SPA)
+    function navegarHacia(vista) {
+      const galeria = document.getElementById('vista-galeria');
+      const workspace = document.getElementById('vista-workspace');
+      const btnGaleria = document.getElementById('nav-btn-galeria');
+      const btnWorkspace = document.getElementById('nav-btn-workspace');
+
+      if (vista === 'workspace' && !casoActual) vista = 'galeria';
+
+      if (vista === 'galeria') {
+        galeria.classList.remove('hidden');
+        workspace.classList.add('hidden');
+        btnGaleria.className = "font-bold text-text-primary transition-colors";
+        btnWorkspace.className = "text-text-secondary hover:text-text-primary transition-colors";
+      } else {
+        galeria.classList.add('hidden');
+        workspace.classList.remove('hidden');
+        btnWorkspace.className = "font-bold text-text-primary transition-colors";
+        btnGaleria.className = "text-text-secondary hover:text-text-primary transition-colors";
+
+        // Disparar extracción inicial si aún no se han traído los datos
+        if (!puzzleData) {
+          cargarDatosPipeline();
+        }
+      }
+    }
+
+    function estadoVision(texto, tipo) {
+      const badge = document.getElementById('status-badge');
+      const dot = document.getElementById('status-dot');
+      document.getElementById('status-texto').innerText = texto;
+      if (tipo === 'cargando') {
+        dot.className = "w-2 h-2 rounded-full bg-amber-500 animate-ping";
+        badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs font-medium border border-amber-200";
+      } else if (tipo === 'error') {
+        dot.className = "w-2 h-2 rounded-full bg-error";
+        badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-culprit-bg text-culprit-text text-xs font-medium border border-culprit-border";
+      } else {
+        dot.className = "w-2 h-2 rounded-full bg-verified-border";
+        badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-room-bar-bg text-room-bar-text text-xs font-medium border border-room-bar-border";
+      }
+    }
+
+    // 1. Cargar pipeline de Visión, OCR y Reglas desde FastAPI
+    async function cargarDatosPipeline() {
+      const idPedido = casoActual;
+      estadoVision("Extrayendo Visión + OCR...", 'cargando');
+
+      try {
+        const respuesta = await fetch(`/api/analizar?caso=${encodeURIComponent(idPedido)}`, { method: 'POST' });
+        if (!respuesta.ok) {
+          const detalle = await respuesta.json().catch(() => ({}));
+          throw new Error(detalle.detail || "Fallo en la extracción de datos.");
+        }
+        const datos = await respuesta.json();
+        if (idPedido !== casoActual) return;  // el usuario cambió de caso mientras cargaba
+
+        puzzleData = datos;
+        estadoVision(datos.no_reconocidas.length ? `Visión: ${datos.no_reconocidas.length} frase(s) sin interpretar` : "Visión: Listo", 'ok');
+        renderizarLeyenda();
+        renderizarExpedientes();
+        renderizarPaleta();
+        renderizarMatriz();
+      } catch (error) {
+        console.error("Error al analizar tablero:", error);
+        estadoVision("Error en análisis", 'error');
+      }
+    }
+
+    // 2. Renderizar los expedientes de personajes leídos por OCR
+    function renderizarExpedientes() {
+      const contenedor = document.getElementById('contenedor-expedientes');
+      contenedor.innerHTML = puzzleData.tarjetas.map(t => {
+        const esVictima = t.nombre === puzzleData.victima;
+        return `
+          <div class="p-2.5 rounded-lg ${esVictima ? 'bg-red-50/70 border border-red-200' : 'bg-slate-50 border border-border-subtle hover:border-border-medium'} flex flex-col gap-1 transition-all">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <div class="w-5 h-5 rounded-full ${esVictima ? 'bg-red-200 text-red-900' : 'bg-text-primary text-white'} flex items-center justify-center font-bold text-[10px]">${esc(t.nombre.charAt(0))}</div>
+                <span class="font-bold text-text-primary">${esc(t.nombre)}</span>
+              </div>
+              <span class="px-1.5 py-0.5 rounded-full text-[9px] ${esVictima ? 'bg-red-100 text-red-800 border border-red-200 font-bold' : 'bg-slate-200 text-text-secondary font-medium'}">${esVictima ? 'VÍCTIMA' : 'Sospechoso'}</span>
+            </div>
+            <p class="text-[11px] text-text-secondary leading-snug">${esc(t.texto) || "Sin testimonio legible."}</p>
+          </div>`;
+      }).join('');
+    }
+
+    function renderizarLeyenda() {
+      document.getElementById('leyenda-salas').innerHTML = puzzleData.salas.map(s => {
+        const p = paletaDeSala(s.id);
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${p.chip} font-medium border"><span class="w-1.5 h-1.5 rounded-full ${p.punto}"></span> ${esc(s.nombre)}</span>`;
+      }).join('');
+    }
+
+    // 3. Paleta de personas y marcado de ubicaciones del jugador
+    function renderizarPaleta() {
+      const personas = [...puzzleData.sospechosos, puzzleData.victima];
+      document.getElementById('paleta-personas').innerHTML = personas.map(nombre => {
+        const ubicada = colocaciones[nombre];
+        const activa = personaActiva === nombre;
+        const base = activa ? 'bg-text-primary text-white border-text-primary'
+                            : (ubicada ? 'bg-room-bar-bg text-room-bar-text border-room-bar-border' : 'bg-card-bg text-text-primary border-border-medium hover:bg-slate-50');
+        const marca = nombre === puzzleData.victima ? ' (víctima)' : '';
+        return `<button data-persona="${esc(nombre)}" onclick="elegirPersona(this.dataset.persona)" class="px-2.5 py-1 rounded-full border text-xs font-medium transition-colors ${base}">${esc(nombre)}${marca}${ubicada ? ' ✓' : ''}</button>`;
+      }).join('');
+    }
+
+    function elegirPersona(nombre) {
+      personaActiva = (personaActiva === nombre) ? null : nombre;
+      renderizarPaleta();
+    }
+
+    function hayMueble(r, c) {
+      return ['mesas', 'plantas', 'computadora'].some(t => (puzzleData.muebles[t] || []).some(co => co[0] === r && co[1] === c));
+    }
+
+    function clickCelda(r, c) {
+      if (!puzzleData || solucionData) return;  // con la solución a la vista el tablero es de solo lectura
+      const ocupante = Object.keys(colocaciones).find(n => colocaciones[n][0] === r && colocaciones[n][1] === c);
+      if (ocupante) {
+        delete colocaciones[ocupante];
+      } else if (personaActiva) {
+        if (hayMueble(r, c)) {
+          mostrarTutor('Esa casilla tiene un mueble que bloquea el paso: nadie puede estar ahí.', 'Aviso');
+          return;
+        }
+        colocaciones[personaActiva] = [r, c];
+        personaActiva = null;
+      } else {
+        mostrarTutor('Primero elige una persona en la paleta y luego toca la casilla.', 'Aviso');
+        return;
+      }
+      nivelPista = 1;  // el estado cambió: la próxima pista vuelve al nivel 1
+      actualizarBotonPista();
+      renderizarPaleta();
+      renderizarMatriz();
+    }
+
+    function actualizarBotonPista() {
+      document.getElementById('txt-btn-tutor').innerText = nivelPista > 1 ? `Más ayuda (nivel ${nivelPista}/3)` : 'Pedir Pista';
+    }
+
+    function mostrarTutor(html, etiqueta, claseEtiqueta) {
+      document.getElementById('texto-tutor').innerHTML = html;
+      const tag = document.getElementById('tag-tutor');
+      tag.innerText = etiqueta;
+      tag.className = claseEtiqueta || "font-mono text-[10px] text-text-muted font-medium";
+    }
+
+    // 4. Renderizar la cuadrícula NxN con topología, muebles y personajes
+    function renderizarMatriz() {
+      const N = puzzleData.N;
+      const grid = document.getElementById('grid-matriz');
+      grid.style.gridTemplateColumns = `repeat(${N}, minmax(0, 1fr))`;
+      grid.style.gridTemplateRows = `repeat(${N}, minmax(0, 1fr))`;
+      const tamIcono = N > 6 ? 'text-[14px]' : 'text-[18px]';
+      const tamNombre = N > 6 ? 'text-[8px]' : 'text-[10px]';
+      let html = '';
+
+      for (let r = 0; r < N; r++) {
+        for (let c = 0; c < N; c++) {
+          const idHab = puzzleData.habitaciones[`${r},${c}`] || 1;
+          const estiloHab = paletaDeSala(idHab).celda;
+
+          // Identificar muebles en la celda
+          let iconoMueble = "";
+          for (const [tipo, listaCoords] of Object.entries(puzzleData.muebles)) {
+            if (listaCoords.some(co => co[0] === r && co[1] === c)) {
+              if (tipo === "sillas") {
+                iconoMueble = `<span class="material-symbols-outlined ${tamIcono} text-slate-500">chair</span>`;
+              } else if (tipo === "mesas") {
+                iconoMueble = `<span class="material-symbols-outlined ${tamIcono} text-slate-500">table_restaurant</span>`;
+              } else if (tipo === "plantas") {
+                iconoMueble = `<span class="material-symbols-outlined ${tamIcono} text-room-bar-text">potted_plant</span>`;
+              } else if (tipo === "computadora") {
+                iconoMueble = `<span class="material-symbols-outlined ${tamIcono} text-room-sala-text">laptop_mac</span>`;
+              }
+            }
+          }
+
+          // Personas: la solución del solver (si se pidió) o las ubicaciones del jugador
+          let personaBadge = "";
+          if (solucionData && solucionData.posiciones) {
+            for (const [persona, pos] of Object.entries(solucionData.posiciones)) {
+              if (pos.fila === r && pos.columna === c) {
+                if (persona === solucionData.asesino) {
+                  personaBadge = `
+                    <div class="absolute inset-0 bg-culprit-bg/95 border-2 border-error rounded flex flex-col items-center justify-center p-0.5 z-10 animate-pulse shadow-sm">
+                      <span class="font-bold ${tamNombre} text-culprit-text">${esc(persona)}</span>
+                      <span class="text-[7px] bg-error text-white px-1 rounded font-bold tracking-tight">CULPABLE</span>
+                    </div>`;
+                } else if (persona === solucionData.victima) {
+                  personaBadge = `
+                    <div class="absolute inset-0 bg-red-50/90 border border-red-300 rounded flex flex-col items-center justify-center p-0.5 z-10 shadow-sm">
+                      <span class="font-bold ${tamNombre} text-red-800">${esc(persona)}</span>
+                      <span class="text-[7px] bg-red-600 text-white px-1 rounded font-semibold">VÍCTIMA</span>
+                    </div>`;
+                } else {
+                  personaBadge = `
+                    <div class="absolute inset-0 bg-white/95 border border-border-medium rounded flex flex-col items-center justify-center p-0.5 z-10 shadow-sm">
+                      <span class="font-bold ${tamNombre} text-text-primary">${esc(persona)}</span>
+                    </div>`;
+                }
+              }
+            }
+          } else {
+            const marcada = Object.keys(colocaciones).find(n => colocaciones[n][0] === r && colocaciones[n][1] === c);
+            if (marcada) {
+              const esVictima = marcada === puzzleData.victima;
+              personaBadge = `
+                <div class="absolute inset-0 ${esVictima ? 'bg-red-50/90 border-red-300' : 'bg-sky-50/95 border-sky-300'} border-2 border-dashed rounded flex flex-col items-center justify-center p-0.5 z-10 shadow-sm">
+                  <span class="font-bold ${tamNombre} text-text-primary">${esc(marcada)}</span>
+                  <span class="text-[7px] text-text-muted">${esVictima ? 'víctima' : 'tu hipótesis'}</span>
+                </div>`;
+            }
+          }
+
+          const interactiva = !solucionData && !hayMueble(r, c);
+          html += `
+            <div id="celda-${r}-${c}" onclick="clickCelda(${r}, ${c})" class="relative ${estiloHab} rounded flex flex-col items-center justify-center border transition-all ${interactiva ? 'cursor-pointer hover:brightness-95' : ''}">
+              <span class="absolute top-0.5 left-0.5 font-mono text-[8px] opacity-40 select-none">${r + 1},${c + 1}</span>
+              ${iconoMueble}
+              ${personaBadge}
+            </div>`;
+        }
+      }
+      grid.innerHTML = html;
+    }
+
+    // 4. Invocar el Solver CP-SAT mediante FastAPI
+    async function ejecutarSolverSAT() {
+      const btn = document.getElementById('btn-resolver');
+      const textoTutor = document.getElementById('texto-tutor');
+      const tagTutor = document.getElementById('tag-tutor');
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Resolviendo con CP-SAT...</span>`;
+
+      try {
+        const respuesta = await fetch(`/api/resolver?caso=${encodeURIComponent(casoActual)}`, { method: 'POST' });
+        if (!respuesta.ok) throw new Error("Restricciones no factibles");
+
+        solucionData = await respuesta.json();
+        personaActiva = null;
+        renderizarPaleta();
+        renderizarMatriz();
+
+        const salaCulpable = puzzleData.salas.find(s => s.id === solucionData.posiciones[solucionData.asesino].habitacion);
+        textoTutor.innerHTML = `
+          <strong class="text-room-bar-text font-bold">¡Caso Resuelto con Éxito en ${solucionData.tiempo_ms.toFixed(1)} ms!</strong><br/>
+          El asesino es <strong>${esc(solucionData.asesino)}</strong>, el único sospechoso que comparte ${salaCulpable ? esc(salaCulpable.nombre) : 'la habitación'} con la víctima (${esc(solucionData.victima)}).
+        `;
+        tagTutor.innerText = "Veredicto Emitido";
+        tagTutor.className = "font-mono text-[10px] text-room-bar-text font-bold";
+      } catch (err) {
+        alert("Error: El solver de restricciones no encontró una solución válida para el tablero.");
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">done_all</span><span>Resolver Caso</span>`;
+      }
+    }
+
+    // 5. Pista del tutor: la decide el solver a partir de tus ubicaciones; Ollama solo la redacta
+    function cuerpoJugada() {
+      return JSON.stringify({ colocaciones, nivel: nivelPista, usar_llm: document.getElementById('chk-llm').checked });
+    }
+
+    async function consultarTutorSocratico() {
+      if (solucionData) { mostrarTutor('La solución ya está a la vista. Pulsa «Reiniciar Hipótesis» para volver a jugar.', 'Aviso'); return; }
+      const btn = document.getElementById('btn-tutor');
+      btn.disabled = true;
+      mostrarTutor('<span class="italic text-text-muted">El tutor está analizando tu tablero con el solver...</span>', 'Analizando');
+
+      try {
+        const respuesta = await fetch(`/api/tutor?caso=${encodeURIComponent(casoActual)}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: cuerpoJugada()
+        });
+        if (!respuesta.ok) throw new Error("Tutor no disponible");
+        const data = await respuesta.json();
+
+        if (data.tipo === 'conflicto') {
+          nivelPista = 1;
+          mostrarTutor(esc(data.mensaje), 'Revisa tu tablero', "font-mono text-[10px] text-culprit-text font-bold");
+        } else {
+          mostrarTutor(esc(data.mensaje), data.tipo === 'pista' ? `Pista nivel ${data.nivel}/3` : 'Listo',
+                       "font-mono text-[10px] text-room-sala-text font-bold");
+          if (data.tipo === 'pista') nivelPista = Math.min(nivelPista + 1, 3);
+        }
+        actualizarBotonPista();
+      } catch (err) {
+        mostrarTutor('No se pudo consultar al tutor. Revisa que el caso esté cargado.', 'Error');
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    // Validar: ¿tus ubicaciones contradicen algún testimonio? No revela dónde va cada persona
+    async function validarJugada() {
+      if (solucionData) return;
+      const btn = document.getElementById('btn-validar');
+      btn.disabled = true;
+      try {
+        const respuesta = await fetch(`/api/validar?caso=${encodeURIComponent(casoActual)}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: cuerpoJugada()
+        });
+        if (!respuesta.ok) throw new Error("Validación no disponible");
+        const data = await respuesta.json();
+        const clase = data.estado === 'conflicto' ? "font-mono text-[10px] text-culprit-text font-bold"
+                                                  : "font-mono text-[10px] text-room-bar-text font-bold";
+        const etiqueta = { conflicto: 'Hay contradicciones', parcial: `${data.colocadas}/${data.total} ubicados`, resuelto: 'Caso resuelto' }[data.estado];
+        mostrarTutor(esc(data.mensaje), etiqueta, clase);
+      } catch (err) {
+        mostrarTutor('No se pudo validar el tablero.', 'Error');
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    // 6. Reiniciar estado de la partida
+    function reiniciarTutor() {
+      document.getElementById('texto-tutor').innerHTML = 'Haz clic en <strong>"Pedir Pista (Tutor)"</strong> para recibir una sugerencia deductiva basada en las reglas activas sin desvelar la solución completa.';
+      document.getElementById('tag-tutor').innerText = "Modo Pedagógico";
+      document.getElementById('tag-tutor').className = "font-mono text-[10px] text-text-muted font-medium";
+    }
+
+    function reiniciarTablero() {
+      solucionData = null;
+      colocaciones = {};
+      personaActiva = null;
+      nivelPista = 1;
+      actualizarBotonPista();
+      if (puzzleData) { renderizarPaleta(); renderizarMatriz(); }
+      reiniciarTutor();
+      document.getElementById('texto-tutor').innerText = "Tablero reiniciado. Ubica a las personas y pide una pista cuando la necesites.";
+    }
+
+    cargarCatalogo();
+  </script>
+</body>
+</html>
