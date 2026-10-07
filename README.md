@@ -8,7 +8,12 @@
 - Sofia Gabriel Miranda Cardenas
 - Lizbeth Teresita Olivera Alvarez
 
+## Demo
+
+https://youtu.be/FfXyWsArZNQ
+
 ## Descripción
+
 
 Sistema *end-to-end* que recibe la **imagen de un acertijo Murdoku**, extrae su estado inicial con visión computacional, lo modela como un **problema de satisfacción de restricciones (CSP)** resuelto con **Google OR-Tools CP-SAT** y proyecta la solución sobre la imagen original. Incluye un **tutor interactivo**: el jugador ubica personas en el tablero y el solver le da pistas progresivas y valida su avance sin revelar la solución.
 
