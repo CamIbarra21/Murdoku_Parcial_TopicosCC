@@ -21,8 +21,17 @@
   breaklines=true,
   frame=single,
   columns=fullflexible,
-  keepspaces=true
+  keepspaces=true,
+  keywordstyle=\bfseries,
+  commentstyle=\itshape\color{gray},
+  stringstyle=\color{teal!70!black},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=4pt,
+  xleftmargin=10pt
 }
+
+\renewcommand{\lstlistingname}{Listado}
 
 \newcommand{\AllDiff}{\textsc{AllDifferent}}
 
@@ -512,6 +521,100 @@ deducir que una pista es falsa.
 El tutor también usa el modelo para calcular las celdas factibles de la persona más
 acotada (una resolución con un supuesto por celda candidata) y ofrecer ayuda progresiva en
 tres niveles.
+
+\subsection{Implementación en OR-Tools CP-SAT}\label{sec:codigo}
+El modelo se construye en la función \texttt{\_construir\_modelo()} de
+\texttt{src/solver.py}. Cada restricción formal corresponde a una o pocas líneas de la API
+de CP-SAT; los listados siguientes reproducen el código con nombres abreviados.
+El Listado~\ref{lst:globales} muestra las variables y las restricciones estructurales
+(C1--C5). Todos los rangos y conjuntos ($N$, personas, mapa de salas, muebles) se leen de
+\texttt{puzzle\_data}, por lo que el mismo código sirve para cualquier instancia.
+
+\begin{lstlisting}[language=Python,caption={Variables y restricciones C1--C5},label={lst:globales}]
+model = cp_model.CpModel()
+celdas = [(r, c) for r in range(N) for c in range(N)]
+
+# Booleanas de ocupacion b[p,r,c]
+celda = {(p, r, c): model.NewBoolVar(f"celda_{p}_{r}_{c}")
+         for p in range(P) for (r, c) in celdas}
+
+# C1: cada persona en exactamente una celda
+for p in range(P):
+    model.Add(sum(celda[p, r, c] for r, c in celdas) == 1)
+
+# C2-C3: AllDifferent en filas y columnas (at-most-one)
+for r in range(N):
+    model.Add(sum(celda[p, r, c] for p in range(P)
+                  for c in range(N)) <= 1)
+for c in range(N):
+    model.Add(sum(celda[p, r, c] for p in range(P)
+                  for r in range(N)) <= 1)
+
+# C4: canalizacion a fila X, columna Y y habitacion Z
+X = [model.NewIntVar(0, N - 1, f"X_{p}") for p in personas]
+Y = [model.NewIntVar(0, N - 1, f"Y_{p}") for p in personas]
+Z = [model.NewIntVar(min(ids_hab), max(ids_hab), f"Z_{p}")
+     for p in personas]
+for p in range(P):
+    model.Add(X[p] == sum(r * celda[p, r, c] for r, c in celdas))
+    model.Add(Y[p] == sum(c * celda[p, r, c] for r, c in celdas))
+    model.Add(Z[p] == sum(mapa_hab[r, c] * celda[p, r, c]
+                          for r, c in celdas))
+
+# C5: obstaculos (mesas, plantas, computadora)
+for tipo in obstaculos:
+    for r, c in muebles.get(tipo, []):
+        for p in range(P):
+            model.Add(celda[p, r, c] == 0)
+\end{lstlisting}
+
+El Listado~\ref{lst:reif} muestra las restricciones reificadas. En CP-SAT la reificación se
+expresa con \texttt{OnlyEnforceIf(lit)}: la restricción solo se exige cuando el literal
+\texttt{lit} es verdadero. Para la regla del asesino (C6) se reifica la igualdad
+$Z_v=h$ en ambos sentidos; para las pistas (C7), cada una recibe su literal $\ell_k$, que
+se fija a 1 al resolver o se pasa como supuesto en el modo tutor.
+
+\begin{lstlisting}[language=Python,caption={Restricciones reificadas C6--C7 y diagnóstico},label={lst:reif}]
+# C6: victima en h  =>  exactamente un sospechoso en h
+for h in ids_hab:
+    vic_en_h = model.NewBoolVar(f"vic_en_hab_{h}")
+    model.Add(Z[v] == h).OnlyEnforceIf(vic_en_h)
+    model.Add(Z[v] != h).OnlyEnforceIf(vic_en_h.Not())
+    s_en_h = []
+    for s in range(S):
+        b = model.NewBoolVar(f"s_{s}_en_hab_{h}")
+        model.Add(Z[s] == h).OnlyEnforceIf(b)
+        model.Add(Z[s] != h).OnlyEnforceIf(b.Not())
+        s_en_h.append(b)
+    model.Add(sum(s_en_h) == 1).OnlyEnforceIf(vic_en_h)
+
+# C7: cada pista k condicionada a su literal l_k
+for pista in pistas:
+    lit = model.NewBoolVar(f"pista_{k}")
+    if pista["tipo"] == "columna_fija":
+        model.Add(Y[p] == pista["columna"]).OnlyEnforceIf(lit)
+    elif pista["tipo"] == "direccion_relativa":  # norte
+        model.Add(X[o] < X[d]).OnlyEnforceIf(lit)
+    elif pista["tipo"] == "adyacente_a":
+        vec = vecinos_de(muebles[pista["objeto"]], N)
+        model.Add(sum(celda[p, r, c] for r, c in vec) >= 1
+                  ).OnlyEnforceIf(lit)
+    # ... resto de tipos de la Tabla de pistas
+
+# Resolver: todas las pistas activas
+for lit in literales:
+    model.Add(lit == 1)
+
+# Tutor: pistas y jugadas como supuestos
+model.AddAssumptions(literales + jugadas)
+if solver.Solve(model) == cp_model.INFEASIBLE:
+    nucleo = solver.SufficientAssumptionsForInfeasibility()
+\end{lstlisting}
+
+Además de \texttt{resolver\_murdoku()}, el módulo ofrece \texttt{contar\_soluciones()}, que
+enumera soluciones con \texttt{enumerate\_all\_solutions} y un \emph{callback} para
+verificar la unicidad de cada caso, y \texttt{celdas\_factibles()}, que el tutor usa para
+calcular dónde puede estar cada persona.
 
 \subsection{Solución del caso ``La Tienda''}
 La Tabla~\ref{tab:solucion} muestra las posiciones obtenidas: Barbara es la única
