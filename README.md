@@ -8,10 +8,6 @@
 - Sofia Gabriel Miranda Cardenas
 - Lizbeth Teresita Olivera Alvarez
 
-## Demo
-
-https://youtu.be/FfXyWsArZNQ
-
 ## Descripción
 
 
@@ -25,6 +21,10 @@ Sistema *end-to-end* que recibe la **imagen de un acertijo Murdoku**, extrae su 
 
 ### Formato de las imágenes
 Todos los casos comparten el mismo diseño: **6 tarjetas en 3 columnas × 2 filas** a la izquierda (5 sospechosos y, en la última, la víctima), y el **tablero** a la derecha, rotulado con etiquetas de color por habitación. Solo varía el tamaño de la grilla (6×6 u 8×8) y las habitaciones.
+
+## Demo
+
+https://youtu.be/FfXyWsArZNQ
 
 ## Pipeline
 
@@ -221,6 +221,10 @@ Las figuras (PNG a 300 dpi y PDF vectorial para LaTeX) quedan en `resultados/fig
 - Las imágenes de los casos 02 y 03 deben actualizarse con una frase adicional en una tarjeta cada una (ver `dataset_casos_murdoku.md`); sin ella, esos acertijos admiten más de una solución.
 - El dataset de robustez pedido por el enunciado necesita variantes de cada puzzle con otra iluminación, ángulo ligero e impresión; hoy solo hay versiones digitales y no hay corrección de perspectiva.
 - Informe técnico (LaTeX) y video demostrativo.
+
+#Informe en Overleaf
+
+https://www.overleaf.com/read/fytxtscfnqmn#c8f6d9
 
 ## Referencias
 - Murdoku: https://nl.wikipedia.org/wiki/Murdoku
