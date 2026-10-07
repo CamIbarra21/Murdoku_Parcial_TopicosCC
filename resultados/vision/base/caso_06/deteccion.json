@@ -1,0 +1,627 @@
+{
+ "caso": "caso_06",
+ "nombre": "El Cafetín Universitario",
+ "N": 6,
+ "salas": {
+  "0,0": "Terraza",
+  "0,1": "Terraza",
+  "0,2": "Terraza",
+  "0,3": "Terraza",
+  "0,4": "Terraza",
+  "0,5": "Terraza",
+  "1,0": "Terraza",
+  "1,1": "Terraza",
+  "1,2": "Terraza",
+  "1,3": "Terraza",
+  "1,4": "Terraza",
+  "1,5": "Terraza",
+  "2,0": "Cocina",
+  "2,1": "Cocina",
+  "2,2": "Cocina",
+  "2,3": "Cocina",
+  "2,4": "Cocina",
+  "2,5": "Cocina",
+  "3,0": "Cocina",
+  "3,1": "Cocina",
+  "3,2": "Cocina",
+  "3,3": "Cocina",
+  "3,4": "Cocina",
+  "3,5": "Cocina",
+  "4,0": "Comedor Central",
+  "4,1": "Comedor Central",
+  "4,2": "Comedor Central",
+  "4,3": "Comedor Central",
+  "4,4": "Comedor Central",
+  "4,5": "Comedor Central",
+  "5,0": "Comedor Central",
+  "5,1": "Comedor Central",
+  "5,2": "Comedor Central",
+  "5,3": "Comedor Central",
+  "5,4": "Comedor Central",
+  "5,5": "Comedor Central"
+ },
+ "muebles_detectados": {
+  "sillas": [
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    0
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    3
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ]
+  ],
+  "plantas": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "computadora": [
+   [
+    3,
+    1
+   ]
+  ]
+ },
+ "muebles_reales": {
+  "computadora": [
+   [
+    3,
+    1
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    3
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ]
+  ],
+  "sillas": [
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    0
+   ]
+  ],
+  "plantas": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "resumen": {
+  "ok": 14,
+  "falso_positivo": 0,
+  "omitido": 0,
+  "tipo_incorrecto": 0
+ },
+ "casillas_por_estado": {
+  "ok": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "celdas": [
+  {
+   "fila": 0,
+   "columna": 1,
+   "sala_detectada": "Terraza",
+   "sala_real": "Terraza",
+   "tiene_objeto": true,
+   "std": 43.71,
+   "plantilla": "planta",
+   "similitud": 0.7693,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2443,
+    "mesa-1": 0.2632,
+    "mesa-2": 0.223,
+    "planta": 0.7693,
+    "silla-1": 0.2056,
+    "silla-2": 0.2198
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 3,
+   "sala_detectada": "Terraza",
+   "sala_real": "Terraza",
+   "tiene_objeto": true,
+   "std": 24.7,
+   "plantilla": "mesa-2",
+   "similitud": 0.8135,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3144,
+    "mesa-1": 0.4308,
+    "mesa-2": 0.8135,
+    "planta": 0.2588,
+    "silla-1": 0.2159,
+    "silla-2": 0.4884
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 4,
+   "sala_detectada": "Terraza",
+   "sala_real": "Terraza",
+   "tiene_objeto": true,
+   "std": 32.76,
+   "plantilla": "silla-1",
+   "similitud": 0.7816,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3599,
+    "mesa-1": 0.4902,
+    "mesa-2": 0.2905,
+    "planta": 0.2836,
+    "silla-1": 0.7816,
+    "silla-2": 0.416
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 2,
+   "sala_detectada": "Terraza",
+   "sala_real": "Terraza",
+   "tiene_objeto": true,
+   "std": 29.18,
+   "plantilla": "silla-2",
+   "similitud": 0.8215,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3048,
+    "mesa-1": 0.4422,
+    "mesa-2": 0.5979,
+    "planta": 0.2024,
+    "silla-1": 0.4161,
+    "silla-2": 0.8215
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 5,
+   "sala_detectada": "Terraza",
+   "sala_real": "Terraza",
+   "tiene_objeto": true,
+   "std": 44.4,
+   "plantilla": "planta",
+   "similitud": 0.7725,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2509,
+    "mesa-1": 0.3155,
+    "mesa-2": 0.2624,
+    "planta": 0.7725,
+    "silla-1": 0.2402,
+    "silla-2": 0.242
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 0,
+   "sala_detectada": "Cocina",
+   "sala_real": "Cocina",
+   "tiene_objeto": true,
+   "std": 32.34,
+   "plantilla": "mesa-2",
+   "similitud": 0.7958,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.279,
+    "mesa-1": 0.4591,
+    "mesa-2": 0.7958,
+    "planta": 0.2793,
+    "silla-1": 0.2379,
+    "silla-2": 0.4628
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 3,
+   "sala_detectada": "Cocina",
+   "sala_real": "Cocina",
+   "tiene_objeto": true,
+   "std": 32.56,
+   "plantilla": "mesa-2",
+   "similitud": 0.7928,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2918,
+    "mesa-1": 0.4684,
+    "mesa-2": 0.7928,
+    "planta": 0.2785,
+    "silla-1": 0.245,
+    "silla-2": 0.4714
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 1,
+   "sala_detectada": "Cocina",
+   "sala_real": "Cocina",
+   "tiene_objeto": true,
+   "std": 49.18,
+   "plantilla": "computadora",
+   "similitud": 0.756,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.756,
+    "mesa-1": 0.2457,
+    "mesa-2": 0.2983,
+    "planta": 0.2319,
+    "silla-1": 0.3154,
+    "silla-2": 0.3069
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 4,
+   "sala_detectada": "Cocina",
+   "sala_real": "Cocina",
+   "tiene_objeto": true,
+   "std": 49.35,
+   "plantilla": "silla-2",
+   "similitud": 0.8044,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.274,
+    "mesa-1": 0.4664,
+    "mesa-2": 0.5456,
+    "planta": 0.2184,
+    "silla-1": 0.4465,
+    "silla-2": 0.8044
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 1,
+   "sala_detectada": "Comedor Central",
+   "sala_real": "Comedor Central",
+   "tiene_objeto": true,
+   "std": 22.67,
+   "plantilla": "mesa-1",
+   "similitud": 0.8242,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.251,
+    "mesa-1": 0.8242,
+    "mesa-2": 0.4928,
+    "planta": 0.3819,
+    "silla-1": 0.4699,
+    "silla-2": 0.3301
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 2,
+   "sala_detectada": "Comedor Central",
+   "sala_real": "Comedor Central",
+   "tiene_objeto": true,
+   "std": 22.56,
+   "plantilla": "mesa-1",
+   "similitud": 0.8338,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.251,
+    "mesa-1": 0.8338,
+    "mesa-2": 0.5031,
+    "planta": 0.3822,
+    "silla-1": 0.4773,
+    "silla-2": 0.339
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 5,
+   "sala_detectada": "Comedor Central",
+   "sala_real": "Comedor Central",
+   "tiene_objeto": true,
+   "std": 29.74,
+   "plantilla": "silla-2",
+   "similitud": 0.7734,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3348,
+    "mesa-1": 0.4604,
+    "mesa-2": 0.5606,
+    "planta": 0.2496,
+    "silla-1": 0.447,
+    "silla-2": 0.7734
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 0,
+   "sala_detectada": "Comedor Central",
+   "sala_real": "Comedor Central",
+   "tiene_objeto": true,
+   "std": 33.77,
+   "plantilla": "silla-1",
+   "similitud": 0.738,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3553,
+    "mesa-1": 0.4977,
+    "mesa-2": 0.3321,
+    "planta": 0.3353,
+    "silla-1": 0.738,
+    "silla-2": 0.3982
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 5,
+   "sala_detectada": "Comedor Central",
+   "sala_real": "Comedor Central",
+   "tiene_objeto": true,
+   "std": 42.18,
+   "plantilla": "planta",
+   "similitud": 0.7118,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2571,
+    "mesa-1": 0.3203,
+    "mesa-2": 0.245,
+    "planta": 0.7118,
+    "silla-1": 0.2504,
+    "silla-2": 0.2545
+   }
+  }
+ ],
+ "tarjetas": [
+  {
+   "nombre": "Gabriel",
+   "texto": "El estaba en la Terraza, sentado en una silla."
+  },
+  {
+   "nombre": "Helena",
+   "texto": "Ella estaba al lado de una laptop en la Cocina."
+  },
+  {
+   "nombre": "Ignacio",
+   "texto": "El estaba en la quinta columna, en la Cocina."
+  },
+  {
+   "nombre": "Julia",
+   "texto": "Ella estaba en la primera columna, en el Comedor Central. Ella estaba en la última fila."
+  },
+  {
+   "nombre": "Klaus",
+   "texto": "El estaba al este de Julia, en el Comedor Central."
+  },
+  {
+   "nombre": "Hector",
+   "texto": "La Víctima. Asfixiado en la Terraza junto al culpable."
+  }
+ ],
+ "pistas": [
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Gabriel",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Gabriel",
+   "habitacion": 1
+  },
+  {
+   "tipo": "adyacente_a",
+   "persona": "Helena",
+   "objeto": "computadora"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Helena",
+   "habitacion": 2
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Ignacio",
+   "columna": 4
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Ignacio",
+   "habitacion": 2
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Julia",
+   "columna": 0
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Julia",
+   "habitacion": 3
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Julia",
+   "fila": 5
+  },
+  {
+   "tipo": "direccion_relativa",
+   "origen": "Klaus",
+   "destino": "Julia",
+   "direccion": "este"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Klaus",
+   "habitacion": 3
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Hector",
+   "habitacion": 1
+  }
+ ],
+ "frases_sin_interpretar": []
+}

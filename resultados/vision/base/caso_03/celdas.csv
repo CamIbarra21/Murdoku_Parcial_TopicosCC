@@ -1,0 +1,37 @@
+﻿fila,columna,sala_detectada,sala_real,tiene_objeto,std,plantilla,similitud,tipo_detectado,tipo_real,estado
+0,0,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+0,1,Sala de Lectura,Sala de Lectura,True,29.39,mesa-2,0.8679,mesas,mesas,ok
+0,2,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+0,3,Depósito,Depósito,False,0.0,,,,,vacio
+0,4,Depósito,Depósito,True,58.62,silla-1,0.7968,sillas,sillas,ok
+0,5,Depósito,Depósito,False,0.0,,,,,vacio
+1,0,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+1,1,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+1,2,Sala de Lectura,Sala de Lectura,True,41.37,computadora,0.7519,computadora,computadora,ok
+1,3,Depósito,Depósito,False,0.0,,,,,vacio
+1,4,Depósito,Depósito,True,32.98,mesa-2,0.822,mesas,mesas,ok
+1,5,Depósito,Depósito,False,0.0,,,,,vacio
+2,0,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+2,1,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+2,2,Sala de Lectura,Sala de Lectura,False,0.0,,,,,vacio
+2,3,Depósito,Depósito,False,0.0,,,,,vacio
+2,4,Depósito,Depósito,False,0.0,,,,,vacio
+2,5,Depósito,Depósito,True,51.93,planta,0.7578,plantas,plantas,ok
+3,0,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+3,1,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+3,2,Vestíbulo,Vestíbulo,True,29.69,silla-2,0.7807,sillas,sillas,ok
+3,3,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+3,4,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+3,5,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+4,0,Vestíbulo,Vestíbulo,True,42.63,planta,0.7231,plantas,plantas,ok
+4,1,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+4,2,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+4,3,Vestíbulo,Vestíbulo,True,28.59,mesa-2,0.7501,mesas,mesas,ok
+4,4,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+4,5,Vestíbulo,Vestíbulo,True,29.72,silla-2,0.7742,sillas,sillas,ok
+5,0,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+5,1,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+5,2,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+5,3,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio
+5,4,Vestíbulo,Vestíbulo,True,22.37,mesa-1,0.8412,mesas,mesas,ok
+5,5,Vestíbulo,Vestíbulo,False,0.0,,,,,vacio

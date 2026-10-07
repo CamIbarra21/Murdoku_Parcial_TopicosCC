@@ -1,0 +1,787 @@
+{
+ "caso": "caso_10",
+ "nombre": "La Sala de Prensa",
+ "N": 8,
+ "salas": {
+  "0,0": "Cabina de Grabación",
+  "0,1": "Cabina de Grabación",
+  "0,2": "Cabina de Grabación",
+  "0,3": "Cabina de Grabación",
+  "0,4": "Redacción",
+  "0,5": "Redacción",
+  "0,6": "Redacción",
+  "0,7": "Redacción",
+  "1,0": "Cabina de Grabación",
+  "1,1": "Cabina de Grabación",
+  "1,2": "Cabina de Grabación",
+  "1,3": "Cabina de Grabación",
+  "1,4": "Redacción",
+  "1,5": "Redacción",
+  "1,6": "Redacción",
+  "1,7": "Redacción",
+  "2,0": "Cabina de Grabación",
+  "2,1": "Cabina de Grabación",
+  "2,2": "Cabina de Grabación",
+  "2,3": "Cabina de Grabación",
+  "2,4": "Redacción",
+  "2,5": "Redacción",
+  "2,6": "Redacción",
+  "2,7": "Redacción",
+  "3,0": "Cabina de Grabación",
+  "3,1": "Cabina de Grabación",
+  "3,2": "Cabina de Grabación",
+  "3,3": "Cabina de Grabación",
+  "3,4": "Redacción",
+  "3,5": "Redacción",
+  "3,6": "Redacción",
+  "3,7": "Redacción",
+  "4,0": "Auditorio",
+  "4,1": "Auditorio",
+  "4,2": "Auditorio",
+  "4,3": "Auditorio",
+  "4,4": "Auditorio",
+  "4,5": "Auditorio",
+  "4,6": "Auditorio",
+  "4,7": "Auditorio",
+  "5,0": "Auditorio",
+  "5,1": "Auditorio",
+  "5,2": "Auditorio",
+  "5,3": "Auditorio",
+  "5,4": "Auditorio",
+  "5,5": "Auditorio",
+  "5,6": "Auditorio",
+  "5,7": "Auditorio",
+  "6,0": "Auditorio",
+  "6,1": "Auditorio",
+  "6,2": "Auditorio",
+  "6,3": "Auditorio",
+  "6,4": "Auditorio",
+  "6,5": "Auditorio",
+  "6,6": "Auditorio",
+  "6,7": "Auditorio",
+  "7,0": "Auditorio",
+  "7,1": "Auditorio",
+  "7,2": "Auditorio",
+  "7,3": "Auditorio",
+  "7,4": "Auditorio",
+  "7,5": "Auditorio",
+  "7,6": "Auditorio",
+  "7,7": "Auditorio"
+ },
+ "muebles_detectados": {
+  "sillas": [
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    6,
+    0
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    5
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    6,
+    3
+   ]
+  ],
+  "plantas": [
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    7,
+    4
+   ]
+  ],
+  "computadora": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    7
+   ]
+  ]
+ },
+ "muebles_reales": {
+  "computadora": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    7
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    5
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    6,
+    3
+   ]
+  ],
+  "sillas": [
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    6,
+    7
+   ]
+  ],
+  "plantas": [
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    7,
+    4
+   ]
+  ]
+ },
+ "resumen": {
+  "ok": 15,
+  "falso_positivo": 2,
+  "omitido": 1,
+  "tipo_incorrecto": 0
+ },
+ "casillas_por_estado": {
+  "ok": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    6,
+    3
+   ],
+   [
+    7,
+    4
+   ]
+  ],
+  "falso_positivo": [
+   [
+    3,
+    7
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "omitido": [
+   [
+    6,
+    7
+   ]
+  ]
+ },
+ "celdas": [
+  {
+   "fila": 0,
+   "columna": 1,
+   "sala_detectada": "Cabina de Grabación",
+   "sala_real": "Cabina de Grabación",
+   "tiene_objeto": true,
+   "std": 40.48,
+   "plantilla": "computadora",
+   "similitud": 0.8606,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.8606,
+    "mesa-1": 0.2444,
+    "mesa-2": 0.3024,
+    "planta": 0.2148,
+    "silla-1": 0.3717,
+    "silla-2": 0.3132
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 5,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 38.11,
+   "plantilla": "mesa-1",
+   "similitud": 0.7955,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.1973,
+    "mesa-1": 0.7955,
+    "mesa-2": 0.4726,
+    "planta": 0.2536,
+    "silla-1": 0.4499,
+    "silla-2": 0.3231
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 6,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 49.89,
+   "plantilla": "silla-2",
+   "similitud": 0.8473,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2966,
+    "mesa-1": 0.459,
+    "mesa-2": 0.5638,
+    "planta": 0.2143,
+    "silla-1": 0.4529,
+    "silla-2": 0.8473
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 0,
+   "sala_detectada": "Cabina de Grabación",
+   "sala_real": "Cabina de Grabación",
+   "tiene_objeto": true,
+   "std": 29.73,
+   "plantilla": "silla-2",
+   "similitud": 0.84,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3027,
+    "mesa-1": 0.4233,
+    "mesa-2": 0.5892,
+    "planta": 0.2003,
+    "silla-1": 0.4063,
+    "silla-2": 0.84
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 7,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 51.56,
+   "plantilla": "computadora",
+   "similitud": 0.761,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.761,
+    "mesa-1": 0.2725,
+    "mesa-2": 0.322,
+    "planta": 0.2482,
+    "silla-1": 0.3189,
+    "silla-2": 0.294
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 2,
+   "sala_detectada": "Cabina de Grabación",
+   "sala_real": "Cabina de Grabación",
+   "tiene_objeto": true,
+   "std": 28.98,
+   "plantilla": "mesa-2",
+   "similitud": 0.8663,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3262,
+    "mesa-1": 0.4788,
+    "mesa-2": 0.8663,
+    "planta": 0.2721,
+    "silla-1": 0.2746,
+    "silla-2": 0.5068
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 4,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 51.79,
+   "plantilla": "planta",
+   "similitud": 0.7534,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2416,
+    "mesa-1": 0.2932,
+    "mesa-2": 0.2512,
+    "planta": 0.7534,
+    "silla-1": 0.2277,
+    "silla-2": 0.2526
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 3,
+   "sala_detectada": "Cabina de Grabación",
+   "sala_real": "Cabina de Grabación",
+   "tiene_objeto": true,
+   "std": 45.11,
+   "plantilla": "planta",
+   "similitud": 0.8013,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2146,
+    "mesa-1": 0.2931,
+    "mesa-2": 0.2365,
+    "planta": 0.8013,
+    "silla-1": 0.2275,
+    "silla-2": 0.1994
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 5,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 58.97,
+   "plantilla": "silla-1",
+   "similitud": 0.7959,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.371,
+    "mesa-1": 0.4855,
+    "mesa-2": 0.292,
+    "planta": 0.2558,
+    "silla-1": 0.7959,
+    "silla-2": 0.4097
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 7,
+   "sala_detectada": "Redacción",
+   "sala_real": "Redacción",
+   "tiene_objeto": true,
+   "std": 52.5,
+   "plantilla": "planta",
+   "similitud": 0.7683,
+   "tipo_detectado": "plantas",
+   "tipo_real": null,
+   "estado": "falso_positivo",
+   "similitudes": {
+    "computadora": 0.2363,
+    "mesa-1": 0.3161,
+    "mesa-2": 0.2527,
+    "planta": 0.7683,
+    "silla-1": 0.2415,
+    "silla-2": 0.2406
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 1,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 42.72,
+   "plantilla": "planta",
+   "similitud": 0.675,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2944,
+    "mesa-1": 0.3162,
+    "mesa-2": 0.2374,
+    "planta": 0.675,
+    "silla-1": 0.2539,
+    "silla-2": 0.2715
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 6,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 31.91,
+   "plantilla": "mesa-2",
+   "similitud": 0.8724,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3354,
+    "mesa-1": 0.5113,
+    "mesa-2": 0.8724,
+    "planta": 0.2799,
+    "silla-1": 0.2711,
+    "silla-2": 0.4936
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 2,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 30.03,
+   "plantilla": "silla-2",
+   "similitud": 0.8123,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3784,
+    "mesa-1": 0.4347,
+    "mesa-2": 0.5692,
+    "planta": 0.2531,
+    "silla-1": 0.452,
+    "silla-2": 0.8123
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 7,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 30.33,
+   "plantilla": "silla-2",
+   "similitud": 0.8065,
+   "tipo_detectado": "sillas",
+   "tipo_real": null,
+   "estado": "falso_positivo",
+   "similitudes": {
+    "computadora": 0.4098,
+    "mesa-1": 0.4269,
+    "mesa-2": 0.5654,
+    "planta": 0.2733,
+    "silla-1": 0.4756,
+    "silla-2": 0.8065
+   }
+  },
+  {
+   "fila": 6,
+   "columna": 0,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 30.18,
+   "plantilla": "silla-2",
+   "similitud": 0.8131,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3995,
+    "mesa-1": 0.4258,
+    "mesa-2": 0.5763,
+    "planta": 0.2608,
+    "silla-1": 0.4531,
+    "silla-2": 0.8131
+   }
+  },
+  {
+   "fila": 6,
+   "columna": 3,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 29.86,
+   "plantilla": "mesa-2",
+   "similitud": 0.808,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3514,
+    "mesa-1": 0.4887,
+    "mesa-2": 0.808,
+    "planta": 0.2646,
+    "silla-1": 0.2747,
+    "silla-2": 0.4901
+   }
+  },
+  {
+   "fila": 6,
+   "columna": 7,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": false,
+   "std": 0.0,
+   "plantilla": null,
+   "similitud": null,
+   "tipo_detectado": null,
+   "tipo_real": "sillas",
+   "estado": "omitido",
+   "similitudes": {}
+  },
+  {
+   "fila": 7,
+   "columna": 4,
+   "sala_detectada": "Auditorio",
+   "sala_real": "Auditorio",
+   "tiene_objeto": true,
+   "std": 39.46,
+   "plantilla": "planta",
+   "similitud": 0.7155,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2773,
+    "mesa-1": 0.3225,
+    "mesa-2": 0.2445,
+    "planta": 0.7155,
+    "silla-1": 0.2811,
+    "silla-2": 0.2676
+   }
+  }
+ ],
+ "tarjetas": [
+  {
+   "nombre": "Marcos",
+   "texto": "Él estaba en la Cabina, al lado de una laptop."
+  },
+  {
+   "nombre": "Natalia",
+   "texto": "Ella estaba sentada en una silla en la Redacción. Ella estaba en la sexta columna."
+  },
+  {
+   "nombre": "Orlando",
+   "texto": "El estaba en la tercera columna, en el Auditorio. Él estaba en la quinta fila."
+  },
+  {
+   "nombre": "Paula",
+   "texto": "Ella estaba en la primera columna, sentada en una silla."
+  },
+  {
+   "nombre": "Quirino",
+   "texto": "Él estaba al este de Paula, en la última columna. Él estaba en la sexta fila."
+  },
+  {
+   "nombre": "Howard",
+   "texto": "La Víctima. Silenciado en la Cabina de Grabación con el culpable. Él estaba en la tercera fila."
+  }
+ ],
+ "pistas": [
+  {
+   "tipo": "adyacente_a",
+   "persona": "Marcos",
+   "objeto": "computadora"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Marcos",
+   "habitacion": 1
+  },
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Natalia",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Natalia",
+   "habitacion": 2
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Natalia",
+   "columna": 5
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Orlando",
+   "columna": 2
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Orlando",
+   "habitacion": 3
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Orlando",
+   "fila": 4
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Paula",
+   "columna": 0
+  },
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Paula",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "direccion_relativa",
+   "origen": "Quirino",
+   "destino": "Paula",
+   "direccion": "este"
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Quirino",
+   "columna": 7
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Quirino",
+   "fila": 5
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Howard",
+   "habitacion": 1
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Howard",
+   "fila": 2
+  }
+ ],
+ "frases_sin_interpretar": []
+}

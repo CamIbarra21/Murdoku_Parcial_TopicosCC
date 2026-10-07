@@ -1,0 +1,551 @@
+{
+ "caso": "caso_04",
+ "nombre": "El Centro Tecnológico",
+ "N": 6,
+ "salas": {
+  "0,0": "Servidores",
+  "0,1": "Servidores",
+  "0,2": "Servidores",
+  "0,3": "Servidores",
+  "0,4": "Servidores",
+  "0,5": "Servidores",
+  "1,0": "Servidores",
+  "1,1": "Servidores",
+  "1,2": "Servidores",
+  "1,3": "Servidores",
+  "1,4": "Servidores",
+  "1,5": "Servidores",
+  "2,0": "Recepción",
+  "2,1": "Recepción",
+  "2,2": "Recepción",
+  "2,3": "Recepción",
+  "2,4": "Recepción",
+  "2,5": "Recepción",
+  "3,0": "Recepción",
+  "3,1": "Recepción",
+  "3,2": "Recepción",
+  "3,3": "Recepción",
+  "3,4": "Recepción",
+  "3,5": "Recepción",
+  "4,0": "Laboratorio",
+  "4,1": "Laboratorio",
+  "4,2": "Laboratorio",
+  "4,3": "Laboratorio",
+  "4,4": "Laboratorio",
+  "4,5": "Laboratorio",
+  "5,0": "Laboratorio",
+  "5,1": "Laboratorio",
+  "5,2": "Laboratorio",
+  "5,3": "Laboratorio",
+  "5,4": "Laboratorio",
+  "5,5": "Laboratorio"
+ },
+ "muebles_detectados": {
+  "sillas": [
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    3
+   ]
+  ],
+  "plantas": [
+   [
+    1,
+    3
+   ],
+   [
+    5,
+    0
+   ]
+  ],
+  "computadora": [
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ "muebles_reales": {
+  "computadora": [
+   [
+    1,
+    0
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    3
+   ]
+  ],
+  "sillas": [
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  "plantas": [
+   [
+    1,
+    3
+   ],
+   [
+    5,
+    0
+   ]
+  ]
+ },
+ "resumen": {
+  "ok": 12,
+  "falso_positivo": 0,
+  "omitido": 0,
+  "tipo_incorrecto": 0
+ },
+ "casillas_por_estado": {
+  "ok": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    2
+   ]
+  ]
+ },
+ "celdas": [
+  {
+   "fila": 0,
+   "columna": 1,
+   "sala_detectada": "Servidores",
+   "sala_real": "Servidores",
+   "tiene_objeto": true,
+   "std": 22.26,
+   "plantilla": "mesa-1",
+   "similitud": 0.8479,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2251,
+    "mesa-1": 0.8479,
+    "mesa-2": 0.494,
+    "planta": 0.3393,
+    "silla-1": 0.471,
+    "silla-2": 0.3209
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 4,
+   "sala_detectada": "Servidores",
+   "sala_real": "Servidores",
+   "tiene_objeto": true,
+   "std": 26.99,
+   "plantilla": "mesa-2",
+   "similitud": 0.8194,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.308,
+    "mesa-1": 0.4608,
+    "mesa-2": 0.8194,
+    "planta": 0.2766,
+    "silla-1": 0.2244,
+    "silla-2": 0.4663
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 0,
+   "sala_detectada": "Servidores",
+   "sala_real": "Servidores",
+   "tiene_objeto": true,
+   "std": 40.42,
+   "plantilla": "computadora",
+   "similitud": 0.8644,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.8644,
+    "mesa-1": 0.2326,
+    "mesa-2": 0.2994,
+    "planta": 0.2211,
+    "silla-1": 0.366,
+    "silla-2": 0.3296
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 3,
+   "sala_detectada": "Servidores",
+   "sala_real": "Servidores",
+   "tiene_objeto": true,
+   "std": 42.24,
+   "plantilla": "planta",
+   "similitud": 0.8078,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2437,
+    "mesa-1": 0.2726,
+    "mesa-2": 0.2287,
+    "planta": 0.8078,
+    "silla-1": 0.2127,
+    "silla-2": 0.199
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 2,
+   "sala_detectada": "Recepción",
+   "sala_real": "Laboratorio",
+   "tiene_objeto": true,
+   "std": 39.03,
+   "plantilla": "mesa-2",
+   "similitud": 0.7942,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3451,
+    "mesa-1": 0.476,
+    "mesa-2": 0.7942,
+    "planta": 0.262,
+    "silla-1": 0.2595,
+    "silla-2": 0.4815
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 4,
+   "sala_detectada": "Recepción",
+   "sala_real": "Laboratorio",
+   "tiene_objeto": true,
+   "std": 58.35,
+   "plantilla": "silla-2",
+   "similitud": 0.8448,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3055,
+    "mesa-1": 0.4777,
+    "mesa-2": 0.5709,
+    "planta": 0.221,
+    "silla-1": 0.4626,
+    "silla-2": 0.8448
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 1,
+   "sala_detectada": "Recepción",
+   "sala_real": "Laboratorio",
+   "tiene_objeto": true,
+   "std": 58.28,
+   "plantilla": "silla-2",
+   "similitud": 0.8562,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3172,
+    "mesa-1": 0.4581,
+    "mesa-2": 0.594,
+    "planta": 0.2485,
+    "silla-1": 0.425,
+    "silla-2": 0.8562
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 5,
+   "sala_detectada": "Recepción",
+   "sala_real": "Laboratorio",
+   "tiene_objeto": true,
+   "std": 41.65,
+   "plantilla": "mesa-2",
+   "similitud": 0.8362,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3158,
+    "mesa-1": 0.4752,
+    "mesa-2": 0.8362,
+    "planta": 0.2695,
+    "silla-1": 0.264,
+    "silla-2": 0.4945
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 3,
+   "sala_detectada": "Laboratorio",
+   "sala_real": "Recepción",
+   "tiene_objeto": true,
+   "std": 22.38,
+   "plantilla": "mesa-1",
+   "similitud": 0.8547,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2112,
+    "mesa-1": 0.8547,
+    "mesa-2": 0.5335,
+    "planta": 0.3096,
+    "silla-1": 0.431,
+    "silla-2": 0.349
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 5,
+   "sala_detectada": "Laboratorio",
+   "sala_real": "Recepción",
+   "tiene_objeto": true,
+   "std": 32.93,
+   "plantilla": "silla-1",
+   "similitud": 0.7893,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.4081,
+    "mesa-1": 0.5153,
+    "mesa-2": 0.3315,
+    "planta": 0.2988,
+    "silla-1": 0.7893,
+    "silla-2": 0.4485
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 0,
+   "sala_detectada": "Laboratorio",
+   "sala_real": "Recepción",
+   "tiene_objeto": true,
+   "std": 44.02,
+   "plantilla": "planta",
+   "similitud": 0.7535,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2468,
+    "mesa-1": 0.2132,
+    "mesa-2": 0.2074,
+    "planta": 0.7535,
+    "silla-1": 0.1883,
+    "silla-2": 0.2375
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 2,
+   "sala_detectada": "Laboratorio",
+   "sala_real": "Recepción",
+   "tiene_objeto": true,
+   "std": 29.71,
+   "plantilla": "silla-2",
+   "similitud": 0.8101,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3176,
+    "mesa-1": 0.4404,
+    "mesa-2": 0.5951,
+    "planta": 0.2257,
+    "silla-1": 0.4104,
+    "silla-2": 0.8101
+   }
+  }
+ ],
+ "tarjetas": [
+  {
+   "nombre": "Nuria",
+   "texto": "Ella estaba al lado de una silla."
+  },
+  {
+   "nombre": "Mateo",
+   "texto": "El estaba en la segunda columna, en el Laboratorio."
+  },
+  {
+   "nombre": "Oscar",
+   "texto": "El estaba sentado en una silla, en la quinta columna."
+  },
+  {
+   "nombre": "Patricia",
+   "texto": "Ella estaba al oeste de Mateo. Ella estaba en la Recepción."
+  },
+  {
+   "nombre": "Ramiro",
+   "texto": "El estaba en la cuarta columna, al lado de una mesa."
+  },
+  {
+   "nombre": "Walter",
+   "texto": "La Víctima. Encontrado en Servidores, solo con el agresor."
+  }
+ ],
+ "pistas": [
+  {
+   "tipo": "adyacente_a",
+   "persona": "Nuria",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Mateo",
+   "columna": 1
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Mateo",
+   "habitacion": 2
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Oscar",
+   "columna": 4
+  },
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Oscar",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "direccion_relativa",
+   "origen": "Patricia",
+   "destino": "Mateo",
+   "direccion": "oeste"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Patricia",
+   "habitacion": 3
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Ramiro",
+   "columna": 3
+  },
+  {
+   "tipo": "adyacente_a",
+   "persona": "Ramiro",
+   "objeto": "mesas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Walter",
+   "habitacion": 1
+  }
+ ],
+ "frases_sin_interpretar": []
+}

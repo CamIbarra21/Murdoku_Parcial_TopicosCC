@@ -1,0 +1,37 @@
+﻿fila,columna,sala_detectada,sala_real,tiene_objeto,std,plantilla,similitud,tipo_detectado,tipo_real,estado
+0,0,Terraza,Terraza,False,0.0,,,,,vacio
+0,1,Terraza,Terraza,True,43.71,planta,0.7693,plantas,plantas,ok
+0,2,Terraza,Terraza,False,0.0,,,,,vacio
+0,3,Terraza,Terraza,True,24.7,mesa-2,0.8135,mesas,mesas,ok
+0,4,Terraza,Terraza,True,32.76,silla-1,0.7816,sillas,sillas,ok
+0,5,Terraza,Terraza,False,0.0,,,,,vacio
+1,0,Terraza,Terraza,False,0.0,,,,,vacio
+1,1,Terraza,Terraza,False,0.0,,,,,vacio
+1,2,Terraza,Terraza,True,29.18,silla-2,0.8215,sillas,sillas,ok
+1,3,Terraza,Terraza,False,0.0,,,,,vacio
+1,4,Terraza,Terraza,False,0.0,,,,,vacio
+1,5,Terraza,Terraza,True,44.4,planta,0.7725,plantas,plantas,ok
+2,0,Cocina,Cocina,True,32.34,mesa-2,0.7958,mesas,mesas,ok
+2,1,Cocina,Cocina,False,0.0,,,,,vacio
+2,2,Cocina,Cocina,False,0.0,,,,,vacio
+2,3,Cocina,Cocina,True,32.56,mesa-2,0.7928,mesas,mesas,ok
+2,4,Cocina,Cocina,False,0.0,,,,,vacio
+2,5,Cocina,Cocina,False,0.0,,,,,vacio
+3,0,Cocina,Cocina,False,0.0,,,,,vacio
+3,1,Cocina,Cocina,True,49.18,computadora,0.756,computadora,computadora,ok
+3,2,Cocina,Cocina,False,0.0,,,,,vacio
+3,3,Cocina,Cocina,False,0.0,,,,,vacio
+3,4,Cocina,Cocina,True,49.35,silla-2,0.8044,sillas,sillas,ok
+3,5,Cocina,Cocina,False,0.0,,,,,vacio
+4,0,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+4,1,Comedor Central,Comedor Central,True,22.67,mesa-1,0.8242,mesas,mesas,ok
+4,2,Comedor Central,Comedor Central,True,22.56,mesa-1,0.8338,mesas,mesas,ok
+4,3,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+4,4,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+4,5,Comedor Central,Comedor Central,True,29.74,silla-2,0.7734,sillas,sillas,ok
+5,0,Comedor Central,Comedor Central,True,33.77,silla-1,0.738,sillas,sillas,ok
+5,1,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+5,2,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+5,3,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+5,4,Comedor Central,Comedor Central,False,0.0,,,,,vacio
+5,5,Comedor Central,Comedor Central,True,42.18,planta,0.7118,plantas,plantas,ok

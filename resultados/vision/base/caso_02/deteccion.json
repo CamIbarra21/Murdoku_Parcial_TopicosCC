@@ -1,0 +1,528 @@
+{
+ "caso": "caso_02",
+ "nombre": "La Oficina",
+ "N": 6,
+ "salas": {
+  "0,0": "Gerencia",
+  "0,1": "Gerencia",
+  "0,2": "Gerencia",
+  "0,3": "Archivo",
+  "0,4": "Archivo",
+  "0,5": "Archivo",
+  "1,0": "Gerencia",
+  "1,1": "Gerencia",
+  "1,2": "Gerencia",
+  "1,3": "Archivo",
+  "1,4": "Archivo",
+  "1,5": "Archivo",
+  "2,0": "Gerencia",
+  "2,1": "Gerencia",
+  "2,2": "Gerencia",
+  "2,3": "Archivo",
+  "2,4": "Archivo",
+  "2,5": "Archivo",
+  "3,0": "Open Office",
+  "3,1": "Open Office",
+  "3,2": "Open Office",
+  "3,3": "Open Office",
+  "3,4": "Open Office",
+  "3,5": "Open Office",
+  "4,0": "Open Office",
+  "4,1": "Open Office",
+  "4,2": "Open Office",
+  "4,3": "Open Office",
+  "4,4": "Open Office",
+  "4,5": "Open Office",
+  "5,0": "Open Office",
+  "5,1": "Open Office",
+  "5,2": "Open Office",
+  "5,3": "Open Office",
+  "5,4": "Open Office",
+  "5,5": "Open Office"
+ },
+ "muebles_detectados": {
+  "sillas": [
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "plantas": [
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "computadora": [
+   [
+    0,
+    2
+   ]
+  ]
+ },
+ "muebles_reales": {
+  "computadora": [
+   [
+    0,
+    2
+   ]
+  ],
+  "mesas": [
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "sillas": [
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  "plantas": [
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "resumen": {
+  "ok": 11,
+  "falso_positivo": 0,
+  "omitido": 0,
+  "tipo_incorrecto": 0
+ },
+ "casillas_por_estado": {
+  "ok": [
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "celdas": [
+  {
+   "fila": 0,
+   "columna": 2,
+   "sala_detectada": "Gerencia",
+   "sala_real": "Gerencia",
+   "tiene_objeto": true,
+   "std": 43.0,
+   "plantilla": "computadora",
+   "similitud": 0.7376,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.7376,
+    "mesa-1": 0.2652,
+    "mesa-2": 0.3002,
+    "planta": 0.22,
+    "silla-1": 0.3392,
+    "silla-2": 0.3141
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 4,
+   "sala_detectada": "Archivo",
+   "sala_real": "Archivo",
+   "tiene_objeto": true,
+   "std": 39.2,
+   "plantilla": "mesa-2",
+   "similitud": 0.7991,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3022,
+    "mesa-1": 0.4664,
+    "mesa-2": 0.7991,
+    "planta": 0.2703,
+    "silla-1": 0.2524,
+    "silla-2": 0.4914
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 1,
+   "sala_detectada": "Gerencia",
+   "sala_real": "Gerencia",
+   "tiene_objeto": true,
+   "std": 35.33,
+   "plantilla": "silla-2",
+   "similitud": 0.8124,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3027,
+    "mesa-1": 0.4579,
+    "mesa-2": 0.586,
+    "planta": 0.22,
+    "silla-1": 0.4189,
+    "silla-2": 0.8124
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 5,
+   "sala_detectada": "Archivo",
+   "sala_real": "Archivo",
+   "tiene_objeto": true,
+   "std": 57.87,
+   "plantilla": "silla-2",
+   "similitud": 0.8271,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2679,
+    "mesa-1": 0.4666,
+    "mesa-2": 0.6266,
+    "planta": 0.221,
+    "silla-1": 0.4104,
+    "silla-2": 0.8271
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 3,
+   "sala_detectada": "Archivo",
+   "sala_real": "Archivo",
+   "tiene_objeto": true,
+   "std": 39.47,
+   "plantilla": "mesa-2",
+   "similitud": 0.803,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3184,
+    "mesa-1": 0.4734,
+    "mesa-2": 0.803,
+    "planta": 0.265,
+    "silla-1": 0.2468,
+    "silla-2": 0.469
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 1,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 26.79,
+   "plantilla": "mesa-2",
+   "similitud": 0.859,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3193,
+    "mesa-1": 0.4795,
+    "mesa-2": 0.859,
+    "planta": 0.2622,
+    "silla-1": 0.2608,
+    "silla-2": 0.5313
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 4,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 23.11,
+   "plantilla": "mesa-1",
+   "similitud": 0.8479,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2121,
+    "mesa-1": 0.8479,
+    "mesa-2": 0.5479,
+    "planta": 0.3395,
+    "silla-1": 0.4479,
+    "silla-2": 0.3625
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 0,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 42.69,
+   "plantilla": "planta",
+   "similitud": 0.795,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2478,
+    "mesa-1": 0.22,
+    "mesa-2": 0.223,
+    "planta": 0.795,
+    "silla-1": 0.193,
+    "silla-2": 0.2288
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 4,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 29.53,
+   "plantilla": "silla-2",
+   "similitud": 0.8009,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3253,
+    "mesa-1": 0.4769,
+    "mesa-2": 0.5919,
+    "planta": 0.228,
+    "silla-1": 0.4512,
+    "silla-2": 0.8009
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 2,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 29.76,
+   "plantilla": "silla-2",
+   "similitud": 0.813,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3104,
+    "mesa-1": 0.4436,
+    "mesa-2": 0.6147,
+    "planta": 0.2195,
+    "silla-1": 0.412,
+    "silla-2": 0.813
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 5,
+   "sala_detectada": "Open Office",
+   "sala_real": "Open Office",
+   "tiene_objeto": true,
+   "std": 43.43,
+   "plantilla": "planta",
+   "similitud": 0.7963,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2525,
+    "mesa-1": 0.2435,
+    "mesa-2": 0.2195,
+    "planta": 0.7963,
+    "silla-1": 0.2064,
+    "silla-2": 0.2205
+   }
+  }
+ ],
+ "tarjetas": [
+  {
+   "nombre": "Felipe",
+   "texto": "Él estaba al lado de una planta. Él no estaba sentado en una silla. Él estaba en la cuarta fila."
+  },
+  {
+   "nombre": "Carlos",
+   "texto": "Él estaba al lado de una laptop. Él estaba en la primera fila."
+  },
+  {
+   "nombre": "Diana",
+   "texto": "Ella estaba sentada en una silla en la Gerencia."
+  },
+  {
+   "nombre": "Elena",
+   "texto": "Ella estaba en la tercera columna, en el Open Office."
+  },
+  {
+   "nombre": "Gabriel",
+   "texto": "Él estaba al sur de Carlos. Él estaba en la última columna."
+  },
+  {
+   "nombre": "David",
+   "texto": "La Víctima. Hallado en el Archivo, solo con el asesino."
+  }
+ ],
+ "pistas": [
+  {
+   "tipo": "adyacente_a",
+   "persona": "Felipe",
+   "objeto": "plantas"
+  },
+  {
+   "tipo": "no_sobre_objeto",
+   "persona": "Felipe",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Felipe",
+   "fila": 3
+  },
+  {
+   "tipo": "adyacente_a",
+   "persona": "Carlos",
+   "objeto": "computadora"
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Carlos",
+   "fila": 0
+  },
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Diana",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Diana",
+   "habitacion": 1
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Elena",
+   "columna": 2
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Elena",
+   "habitacion": 3
+  },
+  {
+   "tipo": "direccion_relativa",
+   "origen": "Gabriel",
+   "destino": "Carlos",
+   "direccion": "sur"
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Gabriel",
+   "columna": 5
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "David",
+   "habitacion": 2
+  }
+ ],
+ "frases_sin_interpretar": []
+}

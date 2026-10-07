@@ -1,0 +1,561 @@
+{
+ "caso": "caso_07",
+ "nombre": "La Agencia de Diseño",
+ "N": 6,
+ "salas": {
+  "0,0": "Creativa",
+  "0,1": "Creativa",
+  "0,2": "Creativa",
+  "0,3": "Pasillo Central",
+  "0,4": "Pasillo Central",
+  "0,5": "Pasillo Central",
+  "1,0": "Creativa",
+  "1,1": "Creativa",
+  "1,2": "Creativa",
+  "1,3": "Pasillo Central",
+  "1,4": "Pasillo Central",
+  "1,5": "Pasillo Central",
+  "2,0": "Creativa",
+  "2,1": "Creativa",
+  "2,2": "Creativa",
+  "2,3": "Pasillo Central",
+  "2,4": "Pasillo Central",
+  "2,5": "Pasillo Central",
+  "3,0": "Reuniones",
+  "3,1": "Reuniones",
+  "3,2": "Reuniones",
+  "3,3": "Reuniones",
+  "3,4": "Reuniones",
+  "3,5": "Reuniones",
+  "4,0": "Reuniones",
+  "4,1": "Reuniones",
+  "4,2": "Reuniones",
+  "4,3": "Reuniones",
+  "4,4": "Reuniones",
+  "4,5": "Reuniones",
+  "5,0": "Reuniones",
+  "5,1": "Reuniones",
+  "5,2": "Reuniones",
+  "5,3": "Reuniones",
+  "5,4": "Reuniones",
+  "5,5": "Reuniones"
+ },
+ "muebles_detectados": {
+  "sillas": [
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "mesas": [
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "plantas": [
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  "computadora": [
+   [
+    0,
+    1
+   ],
+   [
+    4,
+    4
+   ]
+  ]
+ },
+ "muebles_reales": {
+  "computadora": [
+   [
+    0,
+    1
+   ],
+   [
+    4,
+    4
+   ]
+  ],
+  "mesas": [
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "sillas": [
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "plantas": [
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    2
+   ]
+  ]
+ },
+ "resumen": {
+  "ok": 12,
+  "falso_positivo": 0,
+  "omitido": 0,
+  "tipo_incorrecto": 0
+ },
+ "casillas_por_estado": {
+  "ok": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "celdas": [
+  {
+   "fila": 0,
+   "columna": 1,
+   "sala_detectada": "Creativa",
+   "sala_real": "Creativa",
+   "tiene_objeto": true,
+   "std": 41.53,
+   "plantilla": "computadora",
+   "similitud": 0.7344,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.7344,
+    "mesa-1": 0.2354,
+    "mesa-2": 0.2867,
+    "planta": 0.2226,
+    "silla-1": 0.3139,
+    "silla-2": 0.2925
+   }
+  },
+  {
+   "fila": 0,
+   "columna": 4,
+   "sala_detectada": "Pasillo Central",
+   "sala_real": "Pasillo Central",
+   "tiene_objeto": true,
+   "std": 58.5,
+   "plantilla": "planta",
+   "similitud": 0.7865,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2429,
+    "mesa-1": 0.3317,
+    "mesa-2": 0.2698,
+    "planta": 0.7865,
+    "silla-1": 0.2626,
+    "silla-2": 0.2667
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 0,
+   "sala_detectada": "Creativa",
+   "sala_real": "Creativa",
+   "tiene_objeto": true,
+   "std": 26.54,
+   "plantilla": "mesa-2",
+   "similitud": 0.8397,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3153,
+    "mesa-1": 0.4612,
+    "mesa-2": 0.8397,
+    "planta": 0.2595,
+    "silla-1": 0.2368,
+    "silla-2": 0.4958
+   }
+  },
+  {
+   "fila": 1,
+   "columna": 5,
+   "sala_detectada": "Pasillo Central",
+   "sala_real": "Pasillo Central",
+   "tiene_objeto": true,
+   "std": 57.83,
+   "plantilla": "silla-2",
+   "similitud": 0.8155,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3117,
+    "mesa-1": 0.4789,
+    "mesa-2": 0.5467,
+    "planta": 0.2205,
+    "silla-1": 0.4705,
+    "silla-2": 0.8155
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 1,
+   "sala_detectada": "Creativa",
+   "sala_real": "Creativa",
+   "tiene_objeto": true,
+   "std": 28.91,
+   "plantilla": "silla-2",
+   "similitud": 0.8305,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3086,
+    "mesa-1": 0.4501,
+    "mesa-2": 0.5996,
+    "planta": 0.2284,
+    "silla-1": 0.4445,
+    "silla-2": 0.8305
+   }
+  },
+  {
+   "fila": 2,
+   "columna": 3,
+   "sala_detectada": "Pasillo Central",
+   "sala_real": "Pasillo Central",
+   "tiene_objeto": true,
+   "std": 58.38,
+   "plantilla": "planta",
+   "similitud": 0.7536,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2233,
+    "mesa-1": 0.3261,
+    "mesa-2": 0.2543,
+    "planta": 0.7536,
+    "silla-1": 0.234,
+    "silla-2": 0.2563
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 2,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 22.88,
+   "plantilla": "mesa-1",
+   "similitud": 0.8691,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.223,
+    "mesa-1": 0.8691,
+    "mesa-2": 0.5278,
+    "planta": 0.3339,
+    "silla-1": 0.4555,
+    "silla-2": 0.3449
+   }
+  },
+  {
+   "fila": 3,
+   "columna": 3,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 28.5,
+   "plantilla": "mesa-2",
+   "similitud": 0.8705,
+   "tipo_detectado": "mesas",
+   "tipo_real": "mesas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2905,
+    "mesa-1": 0.4941,
+    "mesa-2": 0.8705,
+    "planta": 0.2462,
+    "silla-1": 0.2474,
+    "silla-2": 0.5185
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 0,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 29.6,
+   "plantilla": "silla-2",
+   "similitud": 0.8211,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.3263,
+    "mesa-1": 0.4282,
+    "mesa-2": 0.613,
+    "planta": 0.2218,
+    "silla-1": 0.3913,
+    "silla-2": 0.8211
+   }
+  },
+  {
+   "fila": 4,
+   "columna": 4,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 42.44,
+   "plantilla": "computadora",
+   "similitud": 0.7959,
+   "tipo_detectado": "computadora",
+   "tipo_real": "computadora",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.7959,
+    "mesa-1": 0.2461,
+    "mesa-2": 0.3004,
+    "planta": 0.251,
+    "silla-1": 0.3593,
+    "silla-2": 0.3599
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 2,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 44.41,
+   "plantilla": "planta",
+   "similitud": 0.7721,
+   "tipo_detectado": "plantas",
+   "tipo_real": "plantas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.2429,
+    "mesa-1": 0.2353,
+    "mesa-2": 0.2172,
+    "planta": 0.7721,
+    "silla-1": 0.2002,
+    "silla-2": 0.2403
+   }
+  },
+  {
+   "fila": 5,
+   "columna": 5,
+   "sala_detectada": "Reuniones",
+   "sala_real": "Reuniones",
+   "tiene_objeto": true,
+   "std": 33.94,
+   "plantilla": "silla-1",
+   "similitud": 0.8002,
+   "tipo_detectado": "sillas",
+   "tipo_real": "sillas",
+   "estado": "ok",
+   "similitudes": {
+    "computadora": 0.4043,
+    "mesa-1": 0.5212,
+    "mesa-2": 0.326,
+    "planta": 0.3015,
+    "silla-1": 0.8002,
+    "silla-2": 0.4273
+   }
+  }
+ ],
+ "tarjetas": [
+  {
+   "nombre": "Valeria",
+   "texto": "Ella estaba en la sala Creativa, sentada en una silla."
+  },
+  {
+   "nombre": "Bruno",
+   "texto": "El estaba en la última columna, en el Pasillo Central. Él estaba en la segunda fila."
+  },
+  {
+   "nombre": "Celia",
+   "texto": "Ella estaba al lado de una laptop, en la cuarta fila."
+  },
+  {
+   "nombre": "Dante",
+   "texto": "Él estaba en la primera columna, en la sala de Reuniones."
+  },
+  {
+   "nombre": "Elisa",
+   "texto": "Ella estaba al este de Dante, al lado de una planta."
+  },
+  {
+   "nombre": "Galileo",
+   "texto": "La Víctima. Atacado en la sala Creativa con su agresor,"
+  }
+ ],
+ "pistas": [
+  {
+   "tipo": "sobre_objeto",
+   "persona": "Valeria",
+   "objeto": "sillas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Valeria",
+   "habitacion": 1
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Bruno",
+   "columna": 5
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Bruno",
+   "habitacion": 2
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Bruno",
+   "fila": 1
+  },
+  {
+   "tipo": "fila_fija",
+   "persona": "Celia",
+   "fila": 3
+  },
+  {
+   "tipo": "adyacente_a",
+   "persona": "Celia",
+   "objeto": "computadora"
+  },
+  {
+   "tipo": "columna_fija",
+   "persona": "Dante",
+   "columna": 0
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Dante",
+   "habitacion": 3
+  },
+  {
+   "tipo": "direccion_relativa",
+   "origen": "Elisa",
+   "destino": "Dante",
+   "direccion": "este"
+  },
+  {
+   "tipo": "adyacente_a",
+   "persona": "Elisa",
+   "objeto": "plantas"
+  },
+  {
+   "tipo": "habitacion_fija",
+   "persona": "Galileo",
+   "habitacion": 1
+  }
+ ],
+ "frases_sin_interpretar": []
+}
